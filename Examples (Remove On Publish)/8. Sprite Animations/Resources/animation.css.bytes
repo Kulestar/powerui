@@ -1,0 +1,1 @@
+#cogs{	position:fixed;	left:74px;	bottom:96px;}#clouds{	position:fixed;	left:40px;	bottom:136px;}body{	background:url(noise-background.png);	height:100%;	color:#ffffff;	margin:0;	padding:20px;}.board{	position:fixed;	left:25px;	bottom:20px;}

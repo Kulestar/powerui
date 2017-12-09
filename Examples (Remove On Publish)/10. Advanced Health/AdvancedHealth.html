@@ -1,0 +1,40 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+
+<div style='position:fixed;left:30px;top:30px;padding:20px;width:240px;'>
+	<img id='powerbar' style='position:relative;top:11px;left:3px;'/>
+	<img id='healthbar'/>
+	<img src='healthPower.png' style='position:relative;bottom:84px;'>
+	<img src='player.png' style='position:relative;bottom:153px;left:124px;'/>
+	<div style='position:relative;font-size:14px;bottom:200px;left:20px;'>
+		<b>
+			PowerUI
+			<br>
+			<span style='font-size:16px;'>
+				Level 201
+			</span>
+		</b>
+	</div>
+</div>
+
+<center>
+	<div style='height:160px;'></div>
+	<div style='padding:20px;width:240px;text-align:justify;text-align-last:center;'>
+		<br>
+		<br>
+		Dynamic textures draw their content straight to the UI's graphics.<br><br>
+		Textures that require being drawn at runtime like the curved healthbar above can get great flexibility from this.<br><br>
+		Note that if you want to display custom drawn Texture2D images or RenderTextures on the UI, use element.image=tex; or ImageCache.Add.
+	</div>
+</center>
+
+<img src='uilogo.png' style='position:fixed;bottom:25px;right:25px;'/>

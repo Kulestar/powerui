@@ -1,0 +1,75 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+#content-box{
+	
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:300px;
+	padding:40px;
+	text-align:justify;
+	color:#000000;
+	margin-top:auto;
+	margin-bottom:auto;
+	left:10%;
+	
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+		<b>JSON Loading example</b>
+		<br><br>
+		JSON is great for getting data to and from a server. PowerUI now includes a fast JSON parser and stringify methods by default - check out the source of this example.
+		<br><b>Note!</b> Keys are case insensitive - uppercase is not preserved.
+</div>
+
+<script type='text/javascript'>
+
+/*
+ Javascript is totally optional - everything it can do, C# can do too (see also UI.document, a static reference)
+*/
+
+// Load up the JSON (from Unity resources):
+var UnityEngine = importNamespace("UnityEngine");
+
+var jsonString=UnityEngine.Resources.Load("JSON-Example", UnityEngine.TextAsset);
+
+// Load it:
+var jsonObject=JSON.parse(jsonString);
+
+// Get the glossary:
+var gloss=jsonObject.glossary;
+
+// Let's log the glossary title:
+console.log(gloss.title);
+
+// We can also access like this (note! C# JSON requires accessing like this):
+console.log(gloss["title"]);
+
+// How about related entry 2:
+console.log(gloss.GlossList.GlossEntry.Related[2]);
+
+// Back to a string, the "proper" way (Note! Case is *not* preserved):
+console.log(JSON.stringify(gloss));
+
+// Null:
+jsonObject=JSON.parse("null");
+
+console.log((jsonObject==null)); // True
+
+</script>

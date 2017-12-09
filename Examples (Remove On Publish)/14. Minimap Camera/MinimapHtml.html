@@ -1,0 +1,46 @@
+
+<style type='text/css'>
+	
+	.minimapRound{
+		
+		width:90px;
+		height:90px;
+		position:fixed;
+		top:20px;
+		right:20px;
+		
+	}
+	
+	.minimapRing{
+		
+		position:fixed;
+		top:17px;
+		right:17px;
+		
+	}
+	
+	.minimapLogo{
+		
+		width:120px;
+		height:30px;
+		
+	}
+	
+</style>
+
+<center>
+<div style='vertical-align:middle;height:100%;position:fixed;'>
+	<div style='width:400px;padding:20px;background:#00000099;'>
+		- Cameras in the flow of your html -
+		<br><br>
+		<camera class="minimapLogo" path="Player/MinicamLogo" mask="anImage.png">
+		<br><br>
+		Above are two cameras. Both have an (optional) <b>mask</b> too - that lets them be practically any shape, even a logo!
+	</div>
+</div>
+</center>
+
+<!-- This is all it takes! Path (required) is the path in the scene hierarchy to your camera. -->
+<camera class="minimapRound" path="Player/MinicamRound" mask="minimapMask.png">
+
+<img class='minimapRing' src='minimapRing.png'>

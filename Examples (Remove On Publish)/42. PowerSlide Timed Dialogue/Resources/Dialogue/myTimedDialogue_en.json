@@ -1,0 +1,56 @@
+[
+  {
+    "speaker":"joey",
+    "duration":"1.2s",
+    "markup":"Once upon a time.."
+  },
+  {
+    "duration":"1s",
+    "markup":"..In a land far, far awa-"
+  },
+  {
+    "speaker":"player",
+    "duration":"1.7s",
+    "markup":"Woah! woah. That's just so.."
+  },
+  {
+    "duration":"1.4s",
+    "markup":"<i>overused</i>"
+  },
+  {
+    "duration":"3s",
+    "markup":"If you're gonna introduce <i>me</i> then you might as well do it with some <i>style</i>."
+  },
+  {
+    "speaker":"joey",
+    "duration":"2s",
+    "markup":"Ok..so.."
+  },
+  {
+    "duration":"2s",
+    "markup":"What do you suggest?"
+  },
+  {
+    "speaker":"player",
+    "duration":"1.3s",
+    "markup":"Here we witness the almighty-"
+  },
+  {
+    "speaker":"joey",
+    "duration":"1s",
+    "markup":"<i>Almighty?</i> Seriously?"
+  },
+  {
+    "speaker":"player",
+    "duration":"2.6s",
+    "markup":"<b>Ahem</b> - as I was saying - the <i>almighty</i> &Username;"
+  },
+  {
+    "duration":"3s",
+    "markup":"The bravest warrior in all the lands"
+  },
+  {
+    "duration":"3s",
+    "markup":"Preparing for his great battle with the dishwasher"
+  }
+]

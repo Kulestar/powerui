@@ -1,0 +1,48 @@
+<var name="LocalizationTitle">
+	أمثلة التعريب - في &Username;!
+</var>
+
+<var name="SelectLanguage">
+	اختيار اللغة:
+</var>
+
+<var name="LocalizationIntro">
+	توطين يتيح لك عولمة اللعبة بحيث يمكن فهمها في الكثير من لغات مختلفة.
+	يتم تحميل النص من المجلد <b>Resources/Languages/UI</b> ويستخدم مع <b>;variable&amp;</b> في HTML الخاص بك.
+	النص يمكن أن يكون اختياريا نوع الجنس. وهذا مفيد عندما تريد معالجة لاعب مع انه أو انها.
+	<br>
+	<br>
+	ويمكن أيضا توطين استخدامها لتعيين على المتغيرات شاشة التحديث الذي أينما كانوا قد استخدمت على الشاشة. وإليك مثال متغير - في هذه الحالة، اسم المستخدم هو المتغير.
+</var>
+
+<var name="SelectAUsername">
+	إدخال اسم المستخدم:
+</var>
+
+<var name="SelectGender">
+	وحدد الجنس:
+</var>
+
+<var name="Either">
+	كل
+</var>
+
+<var name="Boy">
+	صبي
+</var>
+
+<var name="Girl">
+	فتاة
+</var>
+
+<var name="AWonderfulStory">
+	&Username; يحب أن يكون محايدا بين الجنسين.
+</var>
+
+<var name="AWonderfulStory" gender="boy">
+	يحب &Username; للعب مباريات. &Username; الرقصات جدا، ولكن لا تسمح له تظهر لك.
+</var>
+
+<var name="AWonderfulStory" gender="girl">
+	يحب &Username; للذهاب للتسوق. ترقص &Username; بشكل جميل جدا.
+</var>

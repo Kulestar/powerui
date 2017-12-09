@@ -1,0 +1,797 @@
+/*
+	PowerUI's user agent style sheet
+	--------------------------------
+	
+	Note that this is CSS; Unity doesn't recognise .css as a text file.
+	If you do change this file, make sure you make a note that you did
+	so you don't accidentally lose your changes when you update!
+*/
+
+html:main-ui,html:world-ui{
+	font-size:14px;
+	color:white;
+	/* Makes it such that this can be overriden by just html{} */
+	-spark-specifity:-spark-tag-specifity;
+}
+
+a{
+	color:#0066cc;
+	text-decoration:underline;
+}
+
+a:hover{
+	color:#0000ff;
+}
+
+iframe{
+	/* UA default background */
+	background:white;
+}
+
+/* Input elements */
+
+input[type="checkbox"]{
+	border:1px solid rgb(190,192,197);
+	width:14px;
+	height:14px;
+	background:white;
+	display:inline-block;
+}
+
+input[type="checkbox"]:checked{
+	background:white url("resources://checkbox.png") no-repeat center;
+}
+
+input[type="radio"]{
+	border-radius:7px;
+	border:1px solid rgb(190,192,197);
+	width:14px;
+	height:14px;
+	background:white;
+	display:inline-block;
+}
+
+input[type="radio"]:checked{
+	background:white url("resources://radio-bullet.png") no-repeat center;
+}
+
+input[type="button"],button,input[type="submit"]{
+	border:1px solid white;
+	padding:4px;
+	background-color:rgb(190,192,197);
+	color:black;
+	font-size:14px;
+	display:inline-block;
+	text-align:center;
+}
+
+input[type="button"]:hover,input[type="submit"]:hover,button:hover{
+	background-color:rgb(177,209,208);
+	border:1px solid #66e2e7;
+}
+
+input[type="button"]:active,input[type="submit"]:active,button:active{
+	background-color:rgb(165,218,222);
+	border:1px solid black;
+	position:relative;
+	left:2px;
+}
+
+input[type="text"],input[type="number"],input[type="url"],input[type="email"],input[type="password"]{
+	-moz-user-select:text;
+	box-sizing:border-box;
+	border:1px solid rgb(190,192,197);
+	padding:1px;
+	font-size:14px;
+	direction:ltr;
+	width:150px;
+	height:20px;
+	background-color:white;
+	text-align:left;
+	display:inline-block;
+	color:black;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+textarea{
+	-moz-user-select:text;
+	border:1px solid rgb(190,192,197);
+	padding:1px;
+	font-size:14px;
+	direction:ltr;
+	width:150px;
+	height:40px;
+	background-color:white;
+	text-align:left;
+	display:inline-block;
+	color:black;
+	overflow-y:auto;
+	white-space:pre-wrap;
+}
+
+textarea:hover,input:hover,select:hover{
+	border-color:rgb(87,148,191);
+}
+
+scrollbar{
+	display:block;
+	border:1px solid rgb(248,248,248);
+	background:rgb(248,248,248);
+	box-sizing:border-box;
+}
+
+scrollbar[orient="vertical"]{
+	width:17px;
+}
+
+scrollbar[orient="horizontal"]{
+	height:17px;
+}
+
+resizer{
+	display:block;
+	position:-spark-absolute-fixed;
+	width:17px;
+	height:17px;
+	background:rgb(248,248,248);
+	bottom:0px;
+	right:0px;
+}
+
+scrollbutton,selectbutton{
+	border-radius:6px;
+	border:1px solid white;
+	width:13px;
+	height:13px;
+	background:#dddddd url("resources://scroll-arrow.png") no-repeat center;
+	display:inline-block;
+	position:-spark-absolute-fixed;
+}
+
+selectbutton{
+	top:0px;
+	right:0px;
+	transform:rotate(90deg);
+}
+
+scrollbutton[orient="right"]{
+	right:0px;
+	top:0px;
+}
+
+scrollbutton[orient="left"]{
+	transform:rotate(180deg);
+	left:2px;
+	top:2px;
+}
+
+scrollbutton[orient="down"]{
+	bottom:0px;
+	left:2px;
+	transform:rotate(90deg);
+}
+
+scrollbutton[orient="up"]{
+	transform:rotate(270deg);
+}
+
+scrollbutton:hover{
+	border-color:rgb(60,127,177);
+	background-color:rgb(220,240,251);
+}
+
+scrollthumb{
+	border-radius:6px;
+	border:1px solid white;
+	position:-spark-absolute-fixed;
+	width:13px;
+	height:13px;
+	background:#dddddd;
+	display:inline-block;
+}
+
+scrollthumb:hover{
+	border-color:rgb(60,127,177);
+	background:rgb(220,240,251);
+}
+
+select{
+	-moz-user-select:none;
+	box-sizing:border-box;
+	border:1px solid rgb(190,192,197);
+	padding:1px;
+	font-size:14px;
+	direction:ltr;
+	width:150px;
+	height:20px;
+	background-color:white;
+	text-align:left;
+	display:inline-block;
+	color:black;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+select option:hover{
+	background:blue;
+	color:white;
+}
+
+/* This is the box that pops up when you open a select menu */
+dropdown{
+	display:block;
+	max-height:200px;
+	color:black;
+	position:fixed;
+	background:white;
+	border:1px solid rgb(190,192,197);
+}
+
+/* Built in JS prompts; alert, confirm etc */
+#spark-prompt-background{
+	background-color:rgba(0,0,0,0.4);
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:fixed;
+	text-align:-moz-center;
+	vertical-align:table-middle;
+ }
+ 
+#spark-prompt{
+	width:60%;
+	min-width:180px;
+	color:black;
+	border:1px solid grey;
+	text-align:left;
+}
+
+#spark-prompt-content{
+	padding:10px;
+	background:white;
+}
+
+#spark-prompt-buttons{
+	padding:10px;
+	background:lightgray;
+	text-align:center;
+}
+
+/*
+	-----------------------------------
+	Everything after this point is core CSS which shouldn't be changed
+	
+*/
+
+article, aside, details, div, dt, figcaption, footer, form, header, hgroup, html, main, nav, section, summary {
+    display: block;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+p, dl, multicol {
+    display: block;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+}
+
+dd {
+	margin-inline-start:40px;
+	display:block;
+}
+
+blockquote, figure {
+    display: block;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    margin-inline-end: 40px;
+    margin-inline-start: 40px;
+}
+
+address {
+    display: block;
+    font-style: italic;
+}
+
+center {
+    display: block;
+    text-align: -moz-center;
+}
+
+blockquote[type="cite"] {
+    border-color: blue;
+    border-inline-start: medium solid;
+    border-width: thin;
+    display: block;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
+    padding-inline-start: 1em;
+}
+
+h1 {
+	margin-block-start: 0.67em;
+	margin-block-end: 0.67em;
+	font-size: 2.00em;
+	font-weight: bold;
+}
+
+h2, *:matches(article, aside, nav, section) h1 {
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+	font-size: 1.50em;
+	font-weight: bold;
+}
+
+h3, *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) h1 {
+	margin-block-start: 1.00em;
+	margin-block-end: 1.00em;
+	font-size: 1.17em;
+	font-weight: bold;
+}
+
+h4, *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) h1 {
+	margin-block-start: 1.33em;
+	margin-block-end: 1.33em;
+	font-size: 1.00em;
+	font-weight: bold;
+}
+
+h5, *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) h1 {
+	margin-block-start: 1.67em;
+	margin-block-end: 1.67em;
+	font-size: 0.83em;
+	font-weight: bold;
+}
+
+h6, *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) *:matches(article, aside, nav, section) h1 {
+	margin-block-start: 2.33em;
+	margin-block-end: 2.33em;
+	font-size: 0.67em;
+	font-weight: bold;
+}
+
+camera,img{
+	display:inline-block;
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+}
+
+listing {
+    display: block;
+    font-family: -spark-fixed;
+    font-size: medium;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    white-space: pre;
+}
+
+xmp, pre, plaintext {
+    display: block;
+    font-family: -spark-fixed;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    white-space: pre;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 2px;
+    box-sizing: border-box;
+    display: table;
+    text-indent: 0;
+}
+
+table[align="left"] {
+    float: left;
+}
+
+table[align="right"] {
+    float: right;
+    text-align: start;
+}
+
+caption {
+    display: table-caption;
+    text-align: center;
+}
+
+table[align="center"] > caption {
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+}
+
+table[align="center"] > caption[align="left"]:dir(ltr) {
+    margin-inline-end: 0;
+}
+
+table[align="center"] > caption[align="left"]:dir(rtl) {
+    margin-inline-start: 0;
+}
+
+table[align="center"] > caption[align="right"]:dir(ltr) {
+    margin-inline-start: 0;
+}
+
+table[align="center"] > caption[align="right"]:dir(rtl) {
+    margin-inline-end: 0;
+}
+
+col {
+    display: table-column;
+}
+
+colgroup {
+    display: table-column-group;
+}
+
+tr {
+    display: table-row;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+}
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+}
+
+tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+}
+
+td{
+    display: table-cell;
+    padding: 1px;
+    text-align: inherit;
+}
+
+th{
+    display: table-cell;
+    padding: 1px;
+    text-align: inherit;
+	font-weight: bold;
+}
+
+q::before {
+    content: open-quote;
+}
+
+q::after {
+    content: close-quote;
+}
+
+i, cite, em, var, dfn {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+tt, code, kbd, samp {
+    font-family: Arial;
+}
+
+u, ins {
+    text-decoration: underline;
+}
+
+s, strike, del {
+    text-decoration: line-through;
+}
+
+big {
+    font-size: larger;
+}
+
+small {
+    font-size: smaller;
+}
+
+sub {
+    font-size: smaller;
+    line-height: normal;
+    vertical-align: sub;
+}
+
+sup {
+    font-size: smaller;
+    line-height: normal;
+    vertical-align: super;
+}
+
+nobr {
+    white-space: nowrap;
+}
+
+mark {
+    background: yellow none repeat scroll 0 0;
+    color: black;
+}
+
+*:matches(ul, ol, dir, menu, dl) ul, *:matches(ul, ol, dir, menu, dl) ol, *:matches(ul, ol, dir, menu, dl) dir, *:matches(ul, ol, dir, menu, dl) menu, *:matches(ul, ol, dir, menu, dl) dl{
+    margin-block-end: 0;
+    margin-block-start: 0;
+}
+
+*:matches(ol, ul, menu, dir) ul, *:matches(ol, ul, menu, dir) menu, *:matches(ol, ul, menu, dir) dir{
+    list-style-type: circle;
+}
+
+*:matches(ol, ul, menu, dir) *:matches(ol, ul, menu, dir) ul, *:matches(ol, ul, menu, dir) *:matches(ol, ul, menu, dir) menu, *:matches(ol, ul, menu, dir) *:matches(ol, ul, menu, dir) dir{
+    list-style-type: square;
+}
+
+img[usemap], object[usemap] {
+    color: blue;
+}
+
+frameset {
+    border: medium none !important;
+    display: block !important;
+    float: none !important;
+    overflow: hidden;
+    position: static !important;
+}
+
+link {
+    display: none;
+}
+
+frame {
+    border-radius: 0 !important;
+}
+
+noframes {
+    display: none;
+}
+
+spacer {
+    float: none !important;
+    position: static !important;
+}
+
+base, basefont, datalist, head, meta, script, style, title, noembed, param, template {
+    display: none;
+}
+
+area {
+    display: none !important;
+}
+
+marquee {
+	width:100%;
+	box-sizing:border-box;
+    display: inline-block;
+    text-align: start;
+    vertical-align: text-bottom;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+ruby {
+    display: ruby;
+}
+
+rb {
+    display: ruby-base;
+    white-space: nowrap;
+}
+
+rp {
+    display: none;
+}
+
+rt {
+    display: ruby-text;
+}
+
+rtc {
+    display: ruby-text-container;
+}
+
+rtc, rt {
+    font-size: 50%;
+    line-height: 1;
+    white-space: nowrap;
+    text-emphasis: none;
+}
+
+rtc:lang(zh), rt:lang(zh) {
+    ruby-align: center;
+}
+
+rtc:lang(zh-TW), rt:lang(zh-TW) {
+    font-size: 30%;
+}
+
+rtc > rt {
+    font-size: inherit;
+}
+
+ruby, rb, rt, rtc {
+    unicode-bidi: isolate;
+}
+
+details > summary{
+    display: list-item;
+    list-style: inside none disclosure-closed;
+}
+
+details[open] > summary{
+    list-style-type: disclosure-open;
+}
+
+video > .caption-box {
+    overflow: hidden;
+    position: relative;
+}
+
+legend {
+    display: block;
+}
+
+fieldset {
+    border: 2px groove threedlightshadow;
+    display: block;
+    margin-inline-end: 2px;
+    margin-inline-start: 2px;
+    padding-block-end: 0.75em;
+    padding-block-start: 0.35em;
+    padding-inline-end: 0.625em;
+    padding-inline-start: 0.625em;
+}
+
+label {
+    cursor: default;
+}
+
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    padding-inline-start: 40px;
+}
+
+menu[type="context"] {
+    display: none !important;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-end: 1em;
+    margin-block-start: 1em;
+    padding-inline-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: match-parent;
+}
+
+hr {
+    border: 1px inset black;
+    box-sizing: border-box;
+    color: gray;
+    display: block;
+    margin-block-end: 0.5em;
+    margin-block-start: 0.5em;
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+}
+
+hr[size="1"] {
+    border-style: solid none none;
+}
+
+iframe{
+	box-sizing:border-box;
+	display:inline-block;
+	width:300px;
+	height:150px;
+	border: 2px inset grey;
+	overflow:hidden;
+}
+
+iframe:fullscreen {
+    border: medium none !important;
+    padding: 0 !important;
+}
+
+canvas {
+    -moz-user-select: none;
+	width:300px;
+	height:150px;
+	display:inline-block;
+}
+
+input[type="hidden"]{
+	display:none;
+}
+
+font{
+	display:inline;
+}
+
+bdi,bdo,time{
+	display:inline;
+}
+
+caret{
+	left:0px;
+	top:0px;
+	position:-spark-absolute;
+	display:inline-block;
+	margin-left:1px;
+	border-left:1px solid black;
+	height:1em;
+	width:0px;
+}
+
+summary{
+	font-weight:bold;
+	display:inline-block;
+}
+
+br{
+	display:block;
+	width:0px;
+}
+
+abbr,acronym{
+	display:inline;
+}
+
+details{
+	display:none;
+}
+
+audio,video,progress{
+	display:inline-block;
+}
+
+option{
+	text-align:left;
+	direction:ltr;
+	display:block;
+	width:90%;
+}
+
+optgroup {
+  display: block;
+  float: none !important;
+  position: static !important;
+  font: -moz-list;
+  line-height: normal !important;
+  font-style: italic;
+  font-weight: bold;
+  font-size: inherit;
+  -moz-user-select: none;
+  text-indent: 0;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+}
+
+optgroup > option {
+  padding-inline-start: 20px;
+  font-style: normal;
+  font-weight: normal;
+}
+
+optgroup:before {
+  display: block;
+  content: attr(label);
+}

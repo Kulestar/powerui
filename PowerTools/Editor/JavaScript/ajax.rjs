@@ -1,0 +1,123 @@
+/*
+Promise based ajax.
+*/
+
+var ajax = (function(service){
+	
+	var global={
+		
+		/*
+		Post error status values.
+		*/
+		NO_HOST : 1,
+		ERROR_REQUEST : 2,
+		ERROR_RESPONSE : 3,
+		
+		/*
+		Posts JSON, parsing the response as JSON too.
+		*/
+		postJson : function(to,postData){
+			
+			if(postData!=null){
+				
+				// Convert payload to a JSON string:
+				if(typeof postData !== "string"){
+					postData=JSON.stringify(postData);
+				}
+				
+			}else{
+				postData="";
+			}
+			
+			return global.send("POST",to,postData,true);
+		},
+		
+		/*
+		Get
+		*/
+		get : function(to){
+			return global.send("GET",to,null,false);
+		},
+		
+		/*
+		Get json
+		*/
+		getJson : function(to){
+			return global.send("GET",to,null,true);
+		},
+		
+		/*
+		Posts as-is.
+		*/
+		post : function(to,postData){
+			return global.send("POST",to,postData,false);
+		},
+		
+		/*
+		Performs an XMLHttpRequest, calling the given resolve/ reject methods when it's done.
+		*/
+		send : function(mode,to,postData,parse){
+			
+			return new Promise(function(resolve, reject){
+				
+				// Get Screens/name/index.html:
+				var r = new XMLHttpRequest();
+				
+				r.onerror=function(e){
+					reject({status:global.ERROR_REQUEST});
+				};
+				
+				r.onload=function(e){
+					
+					// Resolve the promise now:
+					var response=parse ? JSON.parse(r.responseText) : r.responseText;
+					
+					if(r.status==200){
+						resolve(response);
+					}else{
+						reject({status:global.ERROR_RESPONSE,payload:response});
+					}
+				};
+				
+				if(service.editorMode() && to.indexOf("http")==-1 && to.indexOf("https")==-1){
+					
+					// Prepend the service now.
+					
+					// If we don't have a current host, insta-fail:
+					var host=service.current();
+					
+					if(!host){
+						reject({status:global.NO_HOST});
+						return;
+					}
+					
+					// Got a before send handle?
+					if(host.beforeSend){
+						
+						var request={ajax:r,url:to,postData:postData};
+						host.beforeSend(request);
+						
+						// Reload the values:
+						to=request.url;
+						postData=request.postData;
+						
+					}
+					
+					// prepend:
+					to=host.path+to;
+					
+				}
+				
+				// Send it off!
+				r.open(mode, to);
+				r.send(postData);
+				
+			});
+			
+		}
+		
+	};
+	
+	return global;
+	
+})(service);

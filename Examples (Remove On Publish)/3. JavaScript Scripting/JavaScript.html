@@ -1,0 +1,102 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+.padded{
+	padding:20px;
+}
+
+body{
+	overflow-y:auto;
+}
+
+</style>
+
+<div style='padding:25px;'>
+	<b><u id='nitro_title'>Javascript Examples</u></b>
+	<br>
+	<div class='padded'>
+	Using Javascript is completely optional; It's much more common to use UI.document from e.g. C# which has exactly the same API. 
+	</div>
+	<br>
+	<div onmousedown='simpleMousedown(event)' class='padded'>
+		Click here to run a mousedown attribute
+	</div>
+	<div id='select-me' class='padded'>
+		Mousedown via selector
+	</div>
+	<div onmousedown='simpleJQuery(event)' class='padded'>
+		Click here to run some jQuery.
+	</div>
+	<div onmousedown='styleMe(event)' class='padded'>
+		The style of this element changes when you click me.
+	</div>
+	<div onmousedown='animateMe(event)' class='padded'>
+		I animate when you click me.
+	</div>
+	<div onmousedown='runGameCode()' class='padded'>
+		Click here to run game functions in C# and Unity Javascript.
+	</div>
+	<br>
+	Dropdown onchange event: <select onchange="dropdownChange(event)">
+		<option value='ChangeMe'>Change me</option>
+		<option value='ToThis'>To this!</option>
+	</select>
+	
+</div>
+
+<script src='jQuery.txt' type='text/javascript'></script>
+
+<script type='text/javascript'>
+
+function simpleMousedown(e){
+	console.log('Clicked!', e);
+}
+
+var ele = document.getElementById('select-me');
+ele.addEventListener("click", function(){
+	console.log("clicked element");
+});
+
+// Mousedown via selector:
+$('#select-me').on("click", function(){
+	console.log('Clicked via jQuery selector!');
+});
+
+function simpleJQuery(e){
+	$("#nitro_title").html("This title was changed by jQuery!");
+}
+
+function styleMe(e){
+	e.target.style.color="orange";
+}
+
+function animateMe(e){
+	// Position required for left etc to work:
+	e.target.style.position="relative";
+	e.target.animate("left:40px;opacity:0;", 1);
+}
+
+function runGameCode(){
+	// Import the C# namespace called JavascriptExample:
+	var jsExample = importNamespace('JavascriptExample');
+	
+	// In it is a class called JsExampleClass with a static method called Hello - let's run that:
+	jsExample.JsExampleClass.Hello();
+	
+	// There's also a class called EpicItem. Let's create one:
+	var myItem = new jsExample.EpicItem("Shoes", 42);
+	myItem.AddOne();
+	console.log("You've got " + myItem.Quantity + " shoes.");
+}
+
+function dropdownChange(e){
+	console.log("You have selected: "+e.target.value);
+}
+
+console.log("Hello! This runs straight away.");
+
+</script>

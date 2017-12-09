@@ -1,0 +1,1 @@
+''JSON Parser''A simple and very lightweight JSON parser which is also currently one of the fastest. Works standalone (outside of Unity) too.

@@ -1,0 +1,38 @@
+/*
+Shortcuts module (used for keyboard shortcuts etc).
+
+[Keyboard input] => [Shortcut map] => [Runs a function]
+
+Typical usage: 
+shortcuts.add("group/path",methodToRun)
+shortcuts.run("group/path",[optional arg])
+*/
+
+var shortcuts = (function(){
+	
+	// The shortcut function map.
+	var map={};
+	
+	return {
+		
+		/*
+		Adds a named shortcut.
+		*/
+		add : function(path,method){
+			map[path]=method;
+			return this;
+		},
+		
+		/*
+		Runs the named shortcut.
+		*/
+		run : function(path,context){
+			if(map[path]){
+				return map[path](context);
+			}
+			return null;
+		}
+		
+	};
+	
+})();

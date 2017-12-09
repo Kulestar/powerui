@@ -1,0 +1,51 @@
+<!--
+To set this up, just make a world UI then apply HTML 
+which makes use of the text-extrude CSS property.
+
+Optionally use shader-family too for lighting!
+-->
+
+<style type='text/css'>
+
+body{
+	margin:0;
+	height:100%;
+}
+
+html{
+	height:100%;
+	shader-family:"Standard Lit";
+	background-color:rgb(40,40,53);
+}
+
+#screen{
+	text-extrude:4;
+	position:relative;
+	top:20px;
+	color:white;
+	font-size:30px;
+	font-family:Hardwood;
+}
+
+/* This is doing the red/blue cycling, and is managing 
+   timing for us by triggering a bunch of DOM events.
+   See the Text3DExample.cs script for catching those. */
+@keyframes police{
+	from{ color-overlay:red; }
+	to{ color-overlay: blue; }
+}
+
+#message{
+	animation: police 1.6s infinite alternate;
+}
+
+</style>
+<center>
+	<div id='screen'>
+		CENTRAL CITY POLICE
+		<br>
+		<span style='font-size:10px;' id='message'>
+			CSS text-extrude example
+		</span>
+	</div>
+</center>

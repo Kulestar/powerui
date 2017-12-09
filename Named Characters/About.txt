@@ -1,0 +1,18 @@
+HTML Named Characters
+---------------------
+
+These are things like &nbsp; or &shy;. By default, PowerUI uses the HTML4 set.
+If you want full coverage, the HTML5 set is provided here too.
+
+The HTML5 set is not used by default because it's some 10 times bigger
+and for the majority of users it would just amount to unnecessary bloat.
+
+To use the HTML5 set:
+- Go to Window -> PowerUI -> Named Characters
+- Tick the HTML5 set box.
+
+Spec:
+https://www.w3.org/TR/html5/syntax.html#named-character-references
+
+Visual overview:
+https://dev.w3.org/html5/html-author/charref

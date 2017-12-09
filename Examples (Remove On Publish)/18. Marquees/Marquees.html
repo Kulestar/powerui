@@ -1,0 +1,60 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+.padded{
+	padding:25px;
+}
+
+.ball{
+	width:40px;
+	height:40px;
+	border-radius:20px;
+	background:white;
+}
+
+.ticker{
+	border:1px solid white;
+	background:black;
+	color:white;
+	width:300px;
+	margin:0px 3px 0px 3px;
+}
+
+.logo{
+	background:url(powerUI-logo.png) no-repeat;
+	background-position:center;
+	height:100%;
+	position:fixed;
+}
+
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div class='logo'></div>
+
+<div class='padded'>
+	
+	<b>Marquees</b>
+	<br>
+	<br>
+	PowerUI supports marquees which can be great for some interesting effects. If you want to do something similar but really advanced, do check out the source of the marquee tag and build from there.
+	<br>
+	<br>
+	
+	<!-- Originally from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/marquee -->
+	
+	<marquee direction="down" width="250" height="200" behavior="alternate" style="background:grey;border:4px solid white;">
+		<marquee behavior="alternate">
+			<div class='ball'></div>
+		</marquee>
+	</marquee>
+	
+	<marquee direction="left" class='ticker'>
+		AAPL <font color=#cc3300>-0.91%</font> &nbsp; GOOG <font color=#339900>+0.12%</font> &nbsp; MS <font color=#339900>+0.1%</font> &nbsp; FB <font color=#cc3300>-0.03%</font> &nbsp; QQQ <font color=#cc3300>-0.23%</font> &nbsp; KULE :) <font color=#339900>+50%</font> &nbsp; BAC <font color=#cc3300>-0.3%</font> &nbsp; CS <font color=#339900>+50%</font> &nbsp; DNDN <font color=#339900>+0.08%</font> &nbsp; AMZN <font color=#cc3300>-0.34%</font> &nbsp; BABA <font color=#339900>+0.43%</font>
+	</marquee>
+	
+</div>

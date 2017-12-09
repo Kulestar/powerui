@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<title>CSS animations: Example 2</title>
+
+<style type="text/css">
+
+/* Sliding text */
+
+@keyframes sliding{
+  from { margin-left:-25%; }
+  50%  { margin-left:25%; }
+  to   { margin-left:-25%; }
+}
+
+.sliding{
+	color:hotpink; /* Just _had_ to use this colour somewhere! */
+	animation:sliding 3s infinite;
+}
+
+</style>
+ 
+<style type="text/css">
+
+/* Pulsating button example */
+
+@keyframes pulsate {
+	0%   { opacity:1; }
+	50%  { opacity:0.5; }
+	100% { opacity:1; }
+}
+
+.pulsingButton:hover{
+	animation: pulsate 2s infinite;
+}
+
+.pulsingButton{
+	display:inline-block;
+	padding:10px;
+	border: 2px solid #06898a;
+	background:#112828;
+}
+
+</style>
+
+<style type='text/css'>
+
+/* Example using color-overlay */
+
+@keyframes funWithColorOverlay {
+	0%   { color-overlay:red; }
+	50%  { color-overlay:green; }
+	100% { color-overlay:blue; }
+}
+
+.colOverlay{
+	width:50%;
+	border:2px solid white;
+	animation:funWithColorOverlay 3s infinite alternate;
+}
+
+</style>
+
+<style type='text/css'>
+
+/* Make transform great again */
+
+@keyframes transformExample {
+	0%   { transform:translate(-50px,0px) rotate(90deg); }
+	100% { transform:translate(50px,0px) rotate(0deg); }
+}
+
+.transformed{
+	width:50px;
+	height:50px;
+	background:red;
+	animation:transformExample 2.3s infinite alternate;
+}
+
+</style>
+
+<style type='text/css'>
+
+/* Simulating sprite animations; originally from http://stackoverflow.com/a/19520558/2873896 */
+
+.hi {
+    width: 50px;
+    height: 72px;
+    background: url("http://s.cdpn.io/79/sprite-steps.png") no-repeat;
+    animation: play 0.8s steps(9) forwards infinite;
+}
+
+@keyframes play {
+   from { background-position-x:    0px; }
+     to { background-position-x: -450px; }
+}
+
+</style>
+
+</head>
+<body style='background:#0a1a1a;'>
+  <center>
+	<div class='sliding'>Watch me move!</div>
+	<br>
+	<br>
+	Hover over this button to make it pulsate<br><br>
+	<div class='pulsingButton'>I'm important!</div>
+	<br>
+	<br>
+	<div class='colOverlay'>The PowerUI specific color-overlay CSS property can do interesting things too!</div>
+	<br>
+	<br>
+	<div class='transformed'></div>
+	<br>
+	<br>
+	We can even simulate sprite animations too:
+	<br>
+	<br>
+	<div style='width:72px;height:72px;background:white;'>
+		<div class="hi"></div>
+	</div>
+  </center>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<style>
+
+/* Style for the document so we can have something positioned at the bottom */
+body,html{
+	margin:0;
+	height:100%;
+}
+
+</style>
+
+<div style='padding:20px;'>
+	
+	Here's a way of fading the screen. It uses the widget template system so you can easily stack other things on top of it like a pause menu.
+	<br>
+	<br>
+	There's more information <a href='http://powerui.kulestar.com/wiki/index.php?title=Screen_Fading_(Fade_to_black/_Whiteouts)' target='_blank'>over on the wiki</a>.
+	<br>
+	<br>
+	<a href='widget://screenfade?to=black&time=3s' id='fade2black'>Fade to black (via widget protocol)</a>
+	<br>
+	<br>
+	<a href='widget://screenfade?to=white'>Cut to white (via widget protocol)</a>
+	<br>
+	<br>
+	<input type='button' value='Fade to red (via fade API)' id='fade2red'>
+	
+</div>
+
+
+<script type='text/nitro'>
+
+function fadedOut(e:UIEvent){
+	debug.log("Faded!");
+}
+
+</script>

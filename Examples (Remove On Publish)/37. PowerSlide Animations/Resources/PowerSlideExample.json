@@ -1,0 +1,1 @@
+[	{		"animation":"tipUp"	},	{		"selector":".tipTitle",		"animation":"titleIn"	},	{		"selector":".tipMessage",		"animation":"messageUp"	}]

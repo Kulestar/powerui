@@ -1,0 +1,99 @@
+PowerUI is made up of a variety of different modules.
+It's all written in C# so you can directly use any part of PowerUI for any other uses too.
+Here's a quick reference to help you find what you need.
+
+
+What's InfiniText?
+------------------
+
+InfiniText is the text engine. It loads TTF and OTF font faces. Multiple font faces form a font family.
+Each font face contains a group of characters; each one is called a glyph.
+Glyphs are outlines which are stored as Blaze paths. 
+InfiniText renders text using a signed-distance-field technique. It generates the signed distance fields on the GPU.
+
+What's Blaze?
+-------------
+
+Blaze is a low level graphics module. Canvas is a relatively thin wrapper around the Blaze API. Its main features:
+- A path rasteriser
+- A triangulator
+- Texture atlasing
+Blaze is used throughout PowerUI. For example you can take an InfiniText glyph and render it on a canvas, 
+or take some shape from an SVG and make an InfiniText glyph out of it.
+
+What's Spark?
+-------------
+
+Spark is the layout and CSS engine. Sparkplug is an extension to Spark.
+
+What's Loonim?
+--------------
+
+An extensive image generation and manipulation library.
+Loonim generates imagery using a node based system. Generation is either on the GPU or CPU.
+Input files are typically in JSON although you can alternatively directly generate the nodes at runtime (as PowerUI does).
+
+What sort of things can Loonim do?
+
+- Colour space manipulations
+- Gradients
+- Graph based changes (like tone mapping)
+- Mathematical operations
+- Noise generation
+- Repetition
+- Blurs
+- More!
+
+Loonim is present in PowerUI in order to support the filter CSS property.
+
+For testing purposes we built an experimental converter from Filter Forge -> Loonim. Essentially
+any Filter Forge filter that doesn't use the LUA node (most of them) can be rendered *at runtime* using the GPU or CPU. Awesome!
+
+
+Content Pipeline
+----------------
+
+PowerUI uses lots of different types of content which can be loaded in multiple ways.
+Here's the pipeline which runs through when e.g. <img src='http://..anImage.svg'> is used.
+
+Path      -> Protocol   -> Content formats -> Content package -> Displayable form    -> Reflow         -> Paint
+http://.. ->   http     ->   SVGFormat     -> ImagePackage    -> DisplayableProperty -> Element.Reflow -> Element.Paint
+
+
+The C# types in use:
+
+FileProtocol -> ImageFormat -> ImagePackage -> DisplayableProperty (specifically a BackgroundImageProperty for images)
+             ->                TextPackage  -> Enters the DOM via innerHTML
+             ->                DataPackage  -> Either of the above depending on usage or e.g. a font
+
+
+Using the pipeline
+------------------
+
+You can directly load up e.g. an SVG over any of your protocols for use elsewhere.
+This is done by creating a package. For example to load a graphic (like an SVG), you'd use ImagePackage:
+
+// Create the package:
+ImagePackage myImage=new ImagePackage("http://..myImage.svg");
+
+// Get it:
+myImage.Get(delegate(ImagePackage pack){
+ // It's done loading! myImage==pack.
+ // pack.Contents is e.g. an SVGFormat instance.
+ // pack.GetImageMaterial(); will display a potentially animated image (SVG/ GIF/ Video etc) on anything that supports a Unity Material.
+});
+
+// TextPackage, DataPackage
+
+So to get particularly abstract, you could for example load a GIF from a data: URI using the same code.
+
+Extending the pipeline
+----------------------
+
+PowerUI's greatest feature is its extensibility - use it! You can add custom versions of all of the above components in the pipeline.
+For example:
+- A custom protocol:// (e.g. cdn:// to deliver content over a socket)
+- A custom image format (e.g. some animation format)
+- A custom renderer (e.g. bypass PowerUI's text rendering or create some fancy effect)
+
+The easiest way is to copy what already exists. See ImageFormat, FileProtocol and DisplayableProperty (and their derivative classes).

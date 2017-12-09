@@ -1,0 +1,46 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+@font-face{
+	font-family:"London2012";
+	src:url(http://powerui.kulestar.com/PowerUI-Olympics2012.ttf);
+}
+
+html{
+	background:url(noise-background.png);
+	font-family:"London2012";
+}
+
+#content-box{
+	
+	font-size:1.5em;
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:400px;
+	padding:40px;
+	text-align:justify;
+	color:black;
+	left:10%;
+	
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+		<center><b>Web Fonts</b></center>
+		<br><br>
+		PowerUI also supports @font-face which allows you to even load fonts from the web!
+		<br><br>
+		Please note that the font must be TTF or OTF (WOFF isn't supported at the moment).<br><br>
+		The font displayed here is for demo purposes only!
+</div>

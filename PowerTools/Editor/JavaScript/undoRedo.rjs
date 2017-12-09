@@ -1,0 +1,185 @@
+/*
+Undo/ Redo module. Typical usage: 
+commands.run(doMethod,undoMethod)
+commands.undo()
+commands.redo()
+Must be provided with the shortcuts module so it can hook up undo/ redo shortcuts.
+*/
+
+var commands = (function(shortcuts){
+	
+	// Command and undo stacks:
+	var doStack=new Array();
+	var undoStack=new Array();
+	
+	// undoStack.length!=0:
+	var hasUndos=false;
+	var changed=false;
+	
+	// Weak command set.
+	var weakCommands=null;
+	
+	/*
+	@private.
+	Adds a command to the command stack, optionally insta-running it.
+	*/
+	function addObject(cmd,run){
+		
+		if(weakCommands!=null){
+			var weaks=weakCommands;
+			weakCommands=null;
+			
+			for(var c in weaks){
+				addObject(weaks[c],false);
+			}
+		}
+		
+		// Push command and "do" it:
+		if(run){
+			var result=cmd.Do();
+			
+			if(result===false){
+				return;
+			}
+		}
+		
+		// Change title:
+		if(!document.title.endsWith("*")){
+			document.title+="*";
+		}
+		
+		changed=true;
+		
+		if(cmd.Undo==null){
+			return;
+		}
+		
+		// Must be undoable to be a command (otherwise no point pushing it!)
+		
+		if(hasUndos){
+			// Delete undo stack:
+			hasUndos=false;
+			undoStack=new Array();
+		}
+		
+		doStack.push(cmd);
+	}
+	
+	// Global:
+	var commands = {
+		
+		/*
+		Adds a command to the undo/redo command stack and runs it.
+		*/
+		run : function(doFunc,undoFunc){
+			return this.add({Do:doFunc,Undo:undoFunc},true);
+		},
+		
+		/*
+		Adds a command to the undo/redo command stack and optionally runs it.
+		*/
+		add : function(doFunc,undoFunc,run){
+			addObject({Do:doFunc,Undo:undoFunc},run);
+			return this;
+		},
+		
+		/*
+		Undo a command, if possible.
+		*/
+		undo : function(){
+			if(doStack.length==0){
+				return false;
+			}
+			
+			var frame=doStack.pop();
+			
+			var result=frame.Undo();
+			undoStack.push(frame);
+			hasUndos=true;
+			
+			/*
+			if(frame.Weak){
+				// Undo again (convenient, but in some cases looks confusing!)
+				result=Undo();
+			}*/
+			
+			return true;
+		},
+
+		/*
+		Redo a recently undone command, if possible.
+		*/
+		redo : function(){
+			if(undoStack.length==0){
+				return false;
+			}
+			
+			var frame=undoStack.pop();
+			
+			var result=frame.Do();
+			
+			// Push back on cmd stack:
+			doStack.push(frame);
+			
+			/*
+			if(frame.Weak){
+				// Redo again (convenient, but in some cases looks confusing!)
+				result=Redo();
+			}
+			*/
+			
+			return true;
+		},
+		
+		/*
+		Weak commands are only added if a strong command is.
+		Note that all weak commands must NOT be order sensitive.
+		E.g. Changing from a UI to another.
+		Should be recorded, but shouldn't trash the undo stack.
+		*/
+		addWeak : function(name,doFunc,undoFunc){
+			
+			if(weakCommands==null){
+				weakCommands={};
+			}
+			
+			weakCommands[name]={Do:doFunc,Undo:undoFunc,Weak:true};
+			
+			return this;
+		},
+		
+		/*
+		True if there's been any changes.
+		*/
+		hasChanged : function(){
+			return changed;
+		},
+		
+		/*
+		Clears the changed status.
+		*/
+		clearChanged : function(){
+			changed=false;
+			
+			if(document.title.endsWith("*")){
+				document.title=document.title.substring(0,document.title.length-1);
+			}
+			
+		},
+		
+		/*
+		Got anything we can undo?
+		*/
+		hasUndo : function(){
+			return hasUndos;
+		}
+		
+	};
+	
+	// Assign shortcuts:
+	shortcuts.add("default/undo",commands.undo);
+	shortcuts.add("default/redo",commands.redo);
+	
+	return commands;
+	
+}(shortcuts));

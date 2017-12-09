@@ -1,0 +1,70 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+#content-box{
+	
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:500px;
+	padding:40px;
+	text-align:justify;
+	color:black;
+	margin-top:auto;
+	margin-bottom:auto;
+	left:10%;
+}
+
+.floaterLeft,.floaterRight{
+	background:#999999;
+	text-align:center;
+	padding:10px;
+	width:140px;
+	height:50px;
+	margin:5px;
+	display:inline-block;
+}
+
+.floaterLeft{
+	float:left;
+}
+
+.floaterRight{
+	float:right;
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+		<center><b>CSS Float</b></center>
+		<br><br>
+		<div class='floaterLeft'>Content will wrap around this.</div><div class='floaterLeft'>Content will wrap around this.</div>
+		PowerUI supports CSS float which allows you to have really nice wrapping. 
+		This can be great for things like a gallery, or an article, where an image looks nice in the "flow" of the content. 
+		This is some random text which helps show how the float wrapping works. 
+		<div class='floaterRight'>Content will wrap around this too!</div><div class='floaterRight'>Content will wrap around this too!</div>
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		<div class='floaterRight'>Content will wrap around this too!</div>
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works. 
+		This is some random text which helps show how the float wrapping works.
+</div>

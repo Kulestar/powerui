@@ -1,0 +1,13 @@
+<div style='padding:20px;'>
+	Context Menu's in PowerUI work for either 2D or 3D objects, using the same technique. It occurs in a few steps:
+	<br><br>
+	- Fire the <b>contextmenu</b> event (typically from a right click; the input is yours to choose).<br>
+	- The current context (e.g. an inventory item, or an npc in the gameworld) receives the event.<br>
+	- It adds the available options to the event as well as picking the template it would like to use to display it.<br>
+	<br><br>
+	2D Example - right click on this (then look at the console):
+	<br>
+	<br>
+	<!-- Right click setup and the contextmenu handlers are in C# -->
+	<img src='uilogo.png' id='my2DContext'>
+</div>

@@ -1,0 +1,54 @@
+<style>
+
+html{
+	background:url(noise-background.png);
+}
+
+#content-box{
+	background:#fff;
+	border:3px solid #000;
+	width:300px;
+	height:300px;
+	padding:20px;
+	color:#000000;
+	margin:auto;
+}
+
+</style>
+
+<div id='content-box'>
+	<div style='height:100%;width:100%;overflow:hidden;' onmousedown='DragScroller.StartScroll' onmousemove='DragScroller.ScrollNow'>
+	<center>
+		<u>PowerUI inside a UnityUI</u>
+		<br>
+		Note that it's <b>not recommended</b> to mix UI frameworks (to avoid confusion), but this example scene is here to show how it's done anyway!
+		<br>
+		<br>
+		This example uses code from the Drag to Scroll example to show that input works too, even if you rotate the element. Click and drag this to get it to scroll!<br><br>
+		<br>
+		<br>
+		<b>How to set this up</b>
+	</center>
+	<br>
+	<br>
+	1. Create a <b>RawImage</b> node
+	<br>
+	2. Add a PowerUI -&gt; HTML UI Panel script to it
+	<br>
+	3. Set the "Html File" property to a .html file
+	<br>
+	4. Done!
+	<center>
+		<br>
+		<br>
+		As with everything else, it's completely dynamic - you don't have to use a "static" html file. DOM access:
+		<br>
+		<br>
+		yourImage.GetComponent&lt;HtmlUIPanel&gt;().document
+		<br>
+		<br>
+		HtmlUIPanel.cs itself is fairly minimal so do take a look at the source of that too!
+		<br>
+	</center>
+	</div>
+</div>

@@ -1,0 +1,94 @@
+<style type='text/css'>
+html{
+	height:100%;
+	width:100%;
+}
+
+body{
+	height:100%;
+	width:100%;
+	margin:0;
+	color:white;
+}
+</style>
+
+<div id='screenContent' style='height:100%;background:url(noise-background.png);'>
+	
+	<!-- The PowerUI logo in the middle of the screen. -->
+	<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+
+	<center style='font-size:30px;vertical-align:table-middle;height:100%;'>
+		<br><br>
+		<b>
+			<span id='message'></span>
+		</b>
+	</center>
+
+</div>
+
+<img src='uilogo.png' style='position:fixed;bottom:20px;right:20px;'/>
+
+<script type='text/javascript'>
+
+/*
+ Javascript is totally optional - everything it can do, C# can do too (see also UI.document, a static reference)
+*/
+
+// The current message:
+var messageID=1;
+
+// Grab the message box (we're caching it for best performance):
+var message=document.getElementById("message");
+
+// Grab the content box:
+var content=document.getElementById("screenContent");
+
+// Lets get things moving! The screen is currently dark, so pretend it was just faded out:
+fadedOut(null);
+
+function fadeIn(){
+	
+	// Fades the screen in. When it's done, it pauses.
+	content.animate("color-overlay:white;",1.4).finished.then(pause);
+	
+}
+
+function pause(){
+	
+	// Waits for 2 seconds, then fades the screen out.
+	setTimeout(fadeOut,2000);
+
+}
+
+function fadeOut(){
+	
+	// Fades the screen out. When it's done, it flips the message.
+	content.animate("color-overlay:black;",1.4).finished.then(fadedOut);
+	
+}
+
+function fadedOut(a){
+	// Flips the message and fades the screen back in.
+	
+	if(messageID==1){
+		//  Write the first message:
+		message.innerHTML="PowerUI isn't limited to just the games UI..";
+		
+		// Next message is #2:
+		messageID=2;
+		
+	}else if(messageID==2){
+		
+		// Write the second message:
+		message.innerHTML="..It can be used for in game world interfaces too!";
+		
+		// Next message is #1:
+		messageID=1;
+	}
+	
+	// Fade in now:
+	fadeIn();
+	
+}
+
+</script>

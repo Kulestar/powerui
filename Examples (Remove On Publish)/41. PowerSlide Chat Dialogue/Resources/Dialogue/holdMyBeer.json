@@ -1,0 +1,26 @@
+[
+	{"speaker":"player"},
+	"Sure - hold my beer!",
+	
+	{"speaker":"system"},
+	"You grab the foot and begin shaking it violently",
+	
+	{"speaker":"player"},
+	"You've done quite the number on this one",
+	"It's completely stuck!",
+	
+	{"speaker":"system"},
+	"Joey seems to be quite upset",
+	
+	{"speaker":"player"},
+	"How did this happen?",
+	
+	{"speaker":"system"},
+	"Joey stares at you",
+	
+	{"speaker":"joey"},
+	"I'd..I'd rather not talk about it",
+	
+	{"speaker":"system"},
+	"Joey is clearly hiding something.."
+]

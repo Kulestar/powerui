@@ -1,0 +1,38 @@
+/*
+Collects parameters in either the #hash or ?query string.
+*/
+
+var parameters=(function(){
+	
+	// Get hash or search:
+	var paramStr=location.hash ? location.hash : location.search;
+
+	var global={};
+	
+	if(paramStr!=""){
+		
+		if(paramStr[0]=='#' || paramStr[0]=='?'){
+			
+			// Chop off the # or ?:
+			paramStr=paramStr.substring(1);
+			
+		}
+		
+		// Split by &:
+		var pieces=paramStr.split('&');
+		
+		for(var piece in pieces){
+			
+			// A=B
+			var parts=pieces[piece].split('=');
+			
+			// Push:
+			global[decodeURIComponent(parts[0])]=decodeURIComponent(parts[1]);
+			
+		}
+		
+	}
+	
+	return global;
+	
+})();

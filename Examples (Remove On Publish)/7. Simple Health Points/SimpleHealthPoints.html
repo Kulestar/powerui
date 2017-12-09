@@ -1,0 +1,44 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+.red-healthbar{
+	display:inline-block;
+	width:100px;
+	height:10px;
+	border:1px solid black;
+	background:red;
+	text-align:left;
+}
+
+.green-healthbar{
+	background:green;
+	height:100%;
+	width:0%;
+}
+
+</style>
+
+<center style='margin:auto;'>
+	<div style='height:10px;'></div>
+	<div class='red-healthbar'>
+		<div class='green-healthbar' id='basic-bar-internal'></div>
+	</div>
+	<br>
+	<br>
+	<b>Power Points</b>
+	<br>
+	&Points;
+	<br>
+	<br>
+	The basic health bar is a green div inside a red one. Its health is set simply by playing around with the width of the green div.
+	<br>
+	<br>
+	The points counter uses the localisation system. This allows you to display it multiple times, and have simple access to it, like this:
+	<br>
+	<br>
+	&Points;
+</center>

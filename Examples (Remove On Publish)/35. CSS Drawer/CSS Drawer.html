@@ -1,0 +1,61 @@
+<div style='padding:20px;'>
+	Hover over the arrow at the bottom to make it slide out.
+</div>
+<style type='text/css'>
+
+/*
+A simple hover based drawer.
+
+Whenever the mouse is over the drawer, it'll attempt to run the slideout animation.
+As the arrow is a child of the drawer, hovering applies to it too!
+
+*/
+
+body{
+	margin:0;
+}
+
+#drawer{
+  background: #303030;
+  width: 100%;
+  height: 50%;
+  bottom: -50%;
+  position: fixed;
+}
+
+#drawer:hover{
+  animation:slideout 0.6s forwards;
+}
+
+@keyframes slideout{
+ 0%{ bottom:-50%; }
+ 100%{ bottom:0%; }
+}
+
+.arrow{
+  position:absolute;
+  top:0px;
+  width:0px;
+  height:0px;
+  left:50%;
+  margin-left:-28px;
+  margin-top: -56px;
+  
+  /* Border hacking makes triangles! */
+  border-style: solid;
+  border-width: 0px 28px 56px 28px;
+  border-color: transparent transparent white transparent;
+}
+
+</style>
+
+<div id="drawer">
+<div style='border:2px solid white; color:white; padding:20px;'>
+Hello!
+<br>
+<br>
+This drawer is defined entirely in CSS.
+</div>
+<div class='arrow'>
+</div>
+</div>

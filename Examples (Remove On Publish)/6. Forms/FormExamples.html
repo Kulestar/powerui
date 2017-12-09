@@ -1,0 +1,283 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+.padded{
+	padding:20px;
+}
+
+body{
+	overflow-y:auto;
+}
+
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+
+<div class='padded'>
+	<b>
+		<u>
+			Form Examples
+		</u>
+	</b>
+	<br>
+	<br>
+	Forms can be used to gather information from the player.
+	<br>
+	They can be submitted to a JavaScript function, a C# function or to a url which in turn can handle them in a custom way if it wants to.
+	<br>
+	<br>
+	<form>
+		<input type='radio' name='exampleVisible' onchange='ChangeExample(event)' value='1' checked /> JavaScript Example  
+		<input type='radio' name='exampleVisible' onchange='ChangeExample(event)' value='2'/> Web Example    
+		<input type='radio' name='exampleVisible' onchange='ChangeExample(event)' value='3'/> C# Example
+	</form>
+	<br>
+	<br>
+	<div id='JavaScriptExample'>
+		<b>
+			<u>
+				JavaScript Example
+			</u>
+		</b>
+		<br>
+		<br>
+		<form onsubmit='HandleWithJs(event)'>
+			Your name: <input type='text' name='yourName'/>
+			<br>
+			<br>
+			You are (check all that apply):
+			<br>
+			<br>
+			Awesome <input type='checkbox' name='awesome'/> 
+			Epic <input type='checkbox' name='epic'/> 
+			Pretty <input type='checkbox' name='purdy'/> 
+			<br>
+			<br>
+			Unique <input type='checkbox' name='unique'/> 
+			Wonderful <input type='checkbox' name='wonderful'/> 
+			<br>
+			<br>
+			<b>What's your favourite?</b> 
+			<select name='favourite'>
+				<option value='pizza'>Pizza</option>
+				<option value='cheese'>Cheese</option>
+				<option value='cheese pizza'>A cheesy pizza</option>
+				<option value='pies'>Pies</option>
+				<option value='chocolate'>Chocolate</option>
+			</select>
+			<br>
+			<br>
+			<b>
+				A story about you..
+			</b>
+			<br>
+			<textarea name='myBio' style='width:300px;height:100px;'></textarea>
+			<br>
+			<br>
+			<input type='submit' value='Send!'/> <span id='JavaScriptMessage'></span>
+		</form>
+	</div>
+	
+	<div id='webExample' style='display:none;'>
+		<b>
+			<u>
+				Web Example
+			</u>
+		</b>
+		<br>
+		<br>
+		The following form is submitted to a website for processing. Note that this webpage is for <i><b>example use only</b></i> and doesn't record your input.
+		<br>
+		<br>
+		<form action='http://powerui.kulestar.com/webformexample' ondone='OnFinishedSending' onsubmit='OnSendingToWeb'>
+			<b>Your name:</b> <input type='text' name='yourName'/> <span id='nameMessage' style='color:#ff0000;'></span>
+			<br>
+			<br>
+			<b>Are you awesome?</b> <input type='radio' name='awesome' value='yeah'/> Yeah! <input type='radio' name='awesome' value='obvs'/> Sure am :D
+			<br>
+			<br>
+			<input type='submit' value='Send!' id='webSubmitButton'/> <span id='webMessage'></span>
+		</form>
+	</div>
+	
+	<div id='csExample' style='display:none;'>
+		<b>
+			<u>
+				C# Example
+			</u>
+		</b>
+		<br>
+		Alternative to JavaScript. You can call any C# function from within JavaScript too, but this avoids JavaScript all together. See FormExampleHandler.cs.
+		<br>
+		<br>
+		<form onsubmit='FormExampleHandler.OnSubmit'>
+			Your name: <input type='text' name='yourName'/>
+			<br>
+			<br>
+			Awesome <input type='checkbox' name='awesome'/> 
+			Epic <input type='checkbox' name='epic'/> 
+			Pretty <input type='checkbox' name='purdy'/> 
+			<br>
+			<br>
+			Unique <input type='checkbox' name='unique'/> 
+			Wonderful <input type='checkbox' name='wonderful'/> 
+			<br>
+			<br>
+			<b>What's your favourite?</b> 
+			<select name='favourite'>
+				<option value='pizza'>Pizza</option>
+				<option value='cheese'>Cheese</option>
+				<option value='cheese pizza'>A cheesy pizza</option>
+				<option value='pies'>Pies</option>
+				<option value='chocolate'>Chocolate</option>
+			</select>
+			<br>
+			<br>
+			<b>A story about you..</b>
+			<br>
+			<textarea name='myBio'></textarea>
+			<br>
+			<br>
+			<input type='submit' value='Send!'/> <span id='csMessage'></span>
+		</form>
+	</div>
+</div>
+
+<script type='text/JavaScript'>
+	
+/*
+ Javascript is totally optional - everything it can do, C# can do too (see also UI.document, a static reference)
+*/
+
+function ChangeExample(e){
+	var examples=["JavaScript","web","cs"];
+	
+	var current=parseInt(e.target.value)-1;
+	
+	for(var i=0;i<examples.length;i++){
+		
+		// Get the example element:
+		var ex=document.getElementById(examples[i]+"Example");
+		
+		if(i==current){
+			// Display it.
+			ex.style.display='block';
+		}else{
+			// Hide it.
+			ex.style.display='none';
+		}
+		
+	}
+	
+}
+
+// JavaScript example:
+
+function HandleWithJs(form){
+	// This function gets called when the form is submitted.
+	// The form's fields are provided as a neat object
+	// so you don't have to go hunting for values.
+	
+	// Quit the default (so the form doesn't submit):
+	form.preventDefault();
+	// (It's an ordinary event object).
+	
+	// Usage is simply form["fieldName"], or form.checked("fieldName") for easily checking if a checkbox is ticked.
+	// You can alternatively use e.g. document.getElementById("aFieldsID").value and manage radio inputs manually.
+	
+	console.log("handling a form with JavaScript.");
+	
+	// Give a feedback message to show something's happened:
+	document.getElementById("JavaScriptMessage").innerHTML="Please check the console.";
+	
+	// And simply log all the fields of the form:
+	console.log("Your name: "+form["yourName"]);
+	console.log("Awesome? "+form.checked("awesome"));
+	console.log("Epic? "+form.checked("epic"));
+	console.log("Pretty? "+form.checked("purdy"));
+	console.log("Unique? "+form.checked("unique"));
+	console.log("Wonderful? "+form.checked("wonderful"));
+	console.log("Your dropdown selection: "+form["favourite"]);
+	console.log("Your Bio: "+form["myBio"]);
+	
+}
+
+
+// Web example:
+
+// This small switch value prevents double clicking/ multi-sending:
+var sending=false;
+
+function OnSendingToWeb(form){
+	
+	// This function is called when the form is submitted.
+	
+	// The form's fields are provided as a neat object
+	// so you don't have to go hunting for values.
+	
+	// To prevent submitting the form, use form.preventDefault().
+	// (It's an ordinary event object).
+	
+	// Usage is simply form["fieldName"], or form.checked("fieldName") for easily checking if a checkbox is ticked.
+	// You can alternatively use e.g. document.getElementById("aFieldsID").value and manage radio inputs manually.
+	
+	if(sending){
+		// Prevent it from getting submitted again:
+		form.preventDefault();
+		return;
+	}
+	
+	if(form["yourName"]==""){
+		document.getElementById("nameMessage").innerHTML="Name missing!";
+		
+		// Prevent it from getting submitted:
+		form.preventDefault();
+		return;
+		
+	}
+	
+	// Yep, it's alright to go!
+	sending=true;
+	// Clear out the response message:
+	document.getElementById("webMessage").innerHTML="";
+	// Clear out the name missing field:
+	document.getElementById("nameMessage").innerHTML="";
+	// Give some form of feedback that this message is going - we'll just stick it straight on the button:
+	document.getElementById("webSubmitButton").value="Sending..";
+	
+}
+
+function OnFinishedSending(e){ 
+	
+	// No longer sending:
+	sending=false;
+	
+	// A useful callback which is run when a web form finished submitting and the server has responded.
+	
+	// Restore the button:
+	document.getElementById("webSubmitButton").value="Send!";
+	// And give out a small message to say where the response is at (notice the console.log's below).
+	document.getElementById("webMessage").innerHTML="Please check the console.";
+	
+	// If the server has something to say, e.response.Text is the servers response.
+	
+	// It may not be present though if e.g. the internet dropped or is unavailable.
+	// so it's adviseable to always check e.response.OK first:
+	
+	if(e.status==200){
+		console.log("Success! The site responded with: "+e.responseText);
+	}else{
+		console.log("Error with request. Status code: "+e.status);
+	}
+	
+	// Prevent the default to avoid navigating:
+	e.preventDefault();
+	
+}
+
+</script>

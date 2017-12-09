@@ -1,0 +1,100 @@
+<style>
+
+/* Style for the document so we can have something positioned at the bottom */
+body{
+	margin:0;
+	height:100%;
+}
+
+html{
+	height:100%;
+}
+
+/* Style for the tip bar */
+
+#toptips{
+	box-sizing:border-box;
+	height:200px;
+	background:white;
+	padding:20px;
+	position:fixed;
+	bottom:0px;
+	color:black;
+	margin-bottom:-200px;
+}
+
+.tipTitle{
+	margin-left:-100%;
+	height:100%;
+}
+
+.tipMessage{
+	padding:20px;
+	margin-top:100%;
+}
+
+/* Used by the first slide to bring the whole tip up */
+
+@keyframes tipUp{
+	0%{ margin-bottom:-200px;opacity:0; }
+	100%{ margin-bottom:0px;opacity:1; }
+}
+
+/* Used by the second slide to bring the title in from the left */
+
+@keyframes titleIn{
+	0%{ margin-left:-100%;opacity:0; }
+	100%{ margin-left:0%;opacity:1; }
+}
+
+/* Used by the third slide to bring the tip body in from the bottom */
+
+@keyframes messageUp{
+	0%{ margin-top:100%;opacity:0; }
+	100%{ margin-top:0%;opacity:1; }
+}
+
+/*
+	Note: In the near future, these keyframes and any other associated style
+	will be able to be declared in the slides file 
+	making it completely self-contained and easy to share.
+*/
+
+</style>
+
+<div style='padding:20px;'>
+	
+	PowerSlide is used to declare <b>sequences of things</b>. It's great for animations and dialogue (speech between people). 
+	<br>
+	<br>
+	This example <i>(inspired by SimCity)</i> shows PowerSlide being used to create a series of animations - check it out!
+	<br>
+	<br>
+	<input type='button' id='starter' value='Run PowerSlide!'/>
+	<br>
+	<br>
+	<b>A quick note about competing selectors:</b> If you have a selector "untriggering" whilst an animation is playing, it will cause a style refresh which 'wins' and drops the animation. For example, when an <b>active</b> selector no longer matches an element and it untriggers, an animation on that element may be cancelled. This will be getting attention in the future.
+	<!-- mousedown method is declared over in MyPowerSlideAnimations.cs -->
+	
+</div>
+
+<div id='toptips' style='opacity:0;'>
+	
+	<!--
+		In this example, we're hardcoding the values of the tip bar.
+		You could use C#, localisation or both to set the values.
+	-->
+	
+	<div class='tipTitle' style='opacity:0;'>
+		
+		<b>Top Tip - Take a look at the wiki articles!</b>
+		
+		<div class='tipMessage' style='opacity:0;'>
+			PowerSlide can be used in a variety of ways, and we're also working on a free, open source editor to generate the json files that it uses too.
+			<br>
+			Take a look at <b>PowerSlideExample.json</b> - the file that actually runs - and <b>AnnotatedPowerSlideExample.json</b> - which describes what's going on.
+		</div>
+		
+	</div>
+	
+</div>

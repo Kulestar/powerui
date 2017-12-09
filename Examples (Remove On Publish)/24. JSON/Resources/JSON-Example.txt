@@ -1,0 +1,15 @@
+{
+    "glossary":{
+        "title": "example glossary",
+	"GlossList": {
+            "GlossEntry": {
+                "ID": 140,
+		"SortAs": "SGML",
+		"GlossTerm": "Standard Generalized Markup Language",
+		"Acronym": "SGML",
+		"Abbrev": "ISO 8879:1986",
+		"Related": [1,140,7342,48]
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+<title>My New Widget</title>
+
+<!--
+For the record, you could add head etc, but it's really not necessary.
+As always, everything (including the title) can use localisation too!
+-->
+
+<style type='text/css'>
+
+/*
+	Widgets are totally isolated from everything else - they're actually iframes.
+*/
+
+html{
+	color:white;
+	background:#0194E1;
+}
+
+body{
+	margin:30px;
+}
+
+</style>
+
+<center>
+	<h1>Hello!</h1>
+	<br><br>
+	This is the widget template for a <b>floating window</b> containing windowContent.html.
+	<br><br>
+	It was opened with the widget:// url scheme - if you click it again, this widget will close.
+	<br><br>
+	This widget resizes and moves too - Drag either the window itself or the bottom right corner.
+</center>
+
+<script type='text/javascript'>
+
+/*
+Here's a simple way to pass in variables to an opening widget. Note that they can be accessed from C# too.
+
+Calling document.widgets.open or adding a query string to the widget URL
+will set global variables. They're available immediately!
+
+------------------------
+E.g. The widget URL that loads up this content is..
+
+widget://floating/WindowExample/windowContent.html?hello=javascript
+
+We'll get a global called 'hello' and it's value is 'javascript'.
+
+*/
+
+// Show it:
+console.log("The widget URL set the hello global to:");
+console.log(hello);
+
+</script>

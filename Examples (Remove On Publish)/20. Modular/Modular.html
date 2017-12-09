@@ -1,0 +1,49 @@
+<style type='text/css'>
+
+html{
+	height:100%;
+	background:url(noise-background.png);
+}
+
+body{
+	color:white;
+	height:100%;
+	margin:0;
+}
+
+.inventory,.chat{
+	width:400px;
+	height:100px;
+	display:block;
+	border:2px solid grey;
+	background:#eeeeee;
+	position:fixed;
+	bottom:0px;
+}
+
+.inventory{
+	right:0px;
+}
+
+.chat{
+	left:0px;
+}
+
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+
+<div style='padding:25px;'>
+	Sometimes it's really useful to break a UI down into sections called modules. For example, you might want to have all your inventory related html and code in its own file.
+	<br>
+	<br>
+	This is really easily done with iframes. By default, iframe paths point at your Resources folders - that's content in any folder called "Resources". Iframes have no particular overheads so you can use as many as you want.
+	<br>
+	<br>
+	Any style that you want to share across modules, like the appearance of your buttons or the fonts used, is best placed in a file called customStyle.html. This file must be in any folder called "Resources".
+</div>
+
+<iframe src='Interfaces/Modular-Chat.html' class='chat'></iframe>
+
+<iframe src='Interfaces/Modular-Inventory.html' class='inventory'></iframe>

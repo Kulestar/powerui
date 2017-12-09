@@ -1,0 +1,112 @@
+/*
+Service module - used to upload/ download files.
+By default, the only available service is 
+the editor itself (it implements the API in PowerTools/EditorService).
+*/
+
+var service = (function(parameters){
+	
+	// The available service hosts (usually just the editor):
+	var hosts=[];
+	var currentHost=null;
+	
+	var global={
+		
+		/*
+		Adds a service host.
+		*/
+		add : function(niceName,desc,basePath,version,beforeSend){
+			
+			var host={
+				name:name,
+				description:desc,
+				path:basePath,
+				version:version,
+				beforeSend:beforeSend,
+				select : function(){
+					global.select(this);
+				}
+			};
+			
+			hosts.push(host);
+			
+			return host;
+		},
+		
+		/*
+		All available hosts. Each contains a name and a basepath.
+		*/
+		list : function(){
+			return hosts;
+		},
+		
+		/*
+		Changes to another service.
+		*/
+		select : function(host){
+			currentHost = host;
+		},
+		
+		/*
+		The current service being used (can be null).
+		*/
+		current : function(){
+			return currentHost;
+		},
+		
+		/*
+		True if we're running in the Unity Editor.
+		*/
+		editorMode : function(){
+			return parameters["editor"]=="1";
+		},
+		
+		/*
+		Gets the given API path. Prepends the version.
+		*/
+		get : function(path){
+			return ajax.get("v"+currentHost.version+"/"+path);
+		},
+		
+		/*
+		Gets the given API path as a JSON list. Prepends the version.
+		*/
+		getList : function(path){
+			return new Promise(function(s,r){
+				ajax.get("v"+currentHost.version+"/"+path).then(function(e){
+					s(jsonList.load(e));
+				},r);
+			});
+		},
+		
+		/*
+		Gets the given API path as JSON. Prepends the version.
+		*/
+		getJson : function(path){
+			return new Promise(function(s,r){
+				ajax.get("v"+currentHost.version+"/"+path).then(function(e){
+					s(JSON.parse(e));
+				},r);
+			});
+		},
+		
+		/*
+		Posts to the given API path. Prepends the version.
+		*/
+		post : function(path,postData){
+			return ajax.post("v"+currentHost.version+"/"+path,postData);
+		}
+		
+	};
+	
+	// If we're in the Unity editor then add an editor endpoint:
+	if(global.editorMode()){
+		
+		// Add it:
+		global.add("Unity Editor","The Unity Editor.","http://localhost:7823/",1).select();
+		
+	}
+	
+	return global;
+	
+})(parameters);

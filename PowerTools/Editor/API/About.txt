@@ -1,0 +1,28 @@
+PowerTools API
+--------------
+
+This is a JSON REST API which is intended to be implemented by
+webservers hosting a copy of PowerTools. It's also implemented here 
+in the Unity Editor for consistency.
+
+
+This way, whenever someone wants to make a quick change, they can just pop 
+open PowerTools on e.g. their tablet, make their changes, then save it, and it'll all continue to be tracked by version control. 
+You could then also provide access to, for example, remote translators who can use their browser to touch up your localisation 
+without needing to give them your whole Unity project. The possibilities are very interesting so your feedback would be much appreciated!
+
+What does it do?
+----------------
+
+Let's say you've uploaded PowerTools to your webserver. 
+Your team members can then start using it wherever they have internet access. 
+However, when they want to actually save their work, that file needs to go somewhere. 
+Similarly, they'll want to explore files available in the project too.
+That's where this API is used. Your webserver (and the Unity Editor) have a REST API
+which, for example, lists all PowerSlide timelines in the project so they can be edited.
+
+Web API implementation
+----------------------
+
+We're planning on implementing this in PHP and also having 
+options to store the actual files in a GIT repository.

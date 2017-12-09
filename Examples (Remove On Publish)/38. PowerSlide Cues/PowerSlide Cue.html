@@ -1,0 +1,113 @@
+<style>
+
+/* Style for the document so we can have something positioned at the bottom */
+body{
+	margin:0;
+	height:100%;
+}
+
+html{
+	height:100%;
+}
+
+/* Style for the tip bar */
+
+#toptips{
+	box-sizing:border-box;
+	height:200px;
+	background:white;
+	padding:20px;
+	position:fixed;
+	bottom:0px;
+	color:black;
+	margin-bottom:-200px;
+}
+
+.tipTitle{
+	margin-left:-100%;
+	height:100%;
+}
+
+.tipMessage{
+	padding:20px;
+	margin-top:100%;
+}
+
+.click-to-continue{
+	margin-left:0%;
+	background:grey;
+	padding:5px;
+	opacity:1;
+	display:inline-block;
+}
+
+/* Used by the first slide to bring the whole tip up */
+
+@keyframes tipUp{
+	0%{ margin-bottom:-200px;opacity:0; }
+	100%{ margin-bottom:0px;opacity:1; }
+}
+
+/* Used by the second slide to bring the title in from the left */
+
+@keyframes titleIn{
+	0%{ margin-left:-100%;opacity:0; }
+	100%{ margin-left:0%;opacity:1; }
+}
+
+/* Used by the third slide to bring the tip body in from the bottom */
+
+@keyframes messageUp{
+	0%{ margin-top:100%;opacity:0; }
+	100%{ margin-top:0%;opacity:1; }
+}
+
+@keyframes buttonOut{
+	0%{ margin-left:0%;opacity:1; }
+	100%{ margin-left:100%;opacity:0; }
+}
+
+/*
+	Note: In the near future, these keyframes and any other associated style
+	will be able to be declared in the slides file 
+	making it completely self-contained and easy to share.
+*/
+
+</style>
+
+<div style='padding:20px;'>
+	
+	This example is the same as the previous PowerSlide example, only this time it uses a <b>Cue</b>.
+	<br>
+	<br>
+	That means it'll wait until some event happens. You can either trigger that by calling <b>element.cue();</b> or, as seen here, you can also target an element and specify an event directly within the slides. Nice!
+	<br>
+	<br>
+	<input type='button' id='starter' value='Run PowerSlide!'/>
+	
+	<!-- mousedown method is declared over in MyPowerSlideAnimations.cs -->
+	
+</div>
+
+<div id='toptips' style='opacity:0;'>
+	
+	<!--
+		In this example, we're hardcoding the values of the tip bar.
+		You could use C#, localisation or both to set the values.
+	-->
+	
+	<div class='tipTitle' style='opacity:0;'>
+		
+		<b>Top Tip - Take a look at the wiki articles!</b> 
+		
+		<div class='click-to-continue'>Click me to continue!</div>
+		
+		<div class='tipMessage' style='opacity:0;'>
+			PowerSlide can be used in a variety of ways, and we're also working on a free, open source editor to generate the json files that it uses too.
+			<br>
+			Take a look at <b>PowerSlideExample.json</b> - the file that actually runs - and <b>AnnotatedPowerSlideExample.json</b> - which describes what's going on.
+		</div>
+		
+	</div>
+	
+</div>

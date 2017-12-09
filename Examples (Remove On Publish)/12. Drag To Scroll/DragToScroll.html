@@ -1,0 +1,52 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+</style>
+
+<div style='background:#fff;border:3px solid #000;width:300px;height:300px;padding:20px;color:#000000;margin:auto;'>
+	
+	<!-- There's the magic attributes! onmousedown and onmousemove calling DragScroller.cs -->
+	
+	<div style='height:100%;width:100%;overflow:hidden;' onmousedown='DragScroller.StartScroll' onmousemove='DragScroller.ScrollNow'>
+	<center>
+		<u>Click and drag this element to get it to scroll</u><br><br>
+		<br>
+		Note about <b>inertial scrolling:</b> Due to a patent held by Apple, we can't implement inertial scrolling. If you want it, see the source of DragToScroll.cs for notes on what to do.
+		<br>
+		<br>
+		This is done by C# methods which can be reused anywhere in the project. When this element is clicked, the C# script, DragScroller (which is in this example's files), stores the location of the mouse. 
+		onmousemove then updates the scroll value. As a side note, mouse events are triggered by touch events too.
+		<br>
+		<br>
+		<b>So, the magic is in adding this:</b>
+		<br>
+		<br>
+		onmousedown='DragScroller.StartScroll' onmousemove='DragScroller.ScrollNow'
+		<br>
+		<br>
+		<b>But make sure you copy DragScroller.cs out of this example!</b>
+		<br>
+		<br>
+		<br>
+		<br>
+		Time for some random text! Welcome to the PowerUI source documentation pages. These are available for anybody wishing to directly integrate or use internal features of PowerUI. If you're looking for guides on how to do things with PowerUI, head over to the <a href='http://powerui.kulestar.com/'>main PowerUI website</a>.
+		<br>
+		<br>
+		If you would like an offline version of this documentation (~3mb ZIP), click here to download it.
+		<br>
+		<br>
+		<b>Notable features</b>
+		<br>
+		PowerUI has many features, but some will of course be much more useful than others. Here's some features to get you started:
+		<br>
+		<br>
+		Http - HTTP requesting which works from just about everywhere. If you've used Unities built in WWW class, you'll find it only works from monobehaviours. Note that this is still subject to the same security restrictions. 
+		<br>
+		<br>
+	</center>
+	</div>
+</div>

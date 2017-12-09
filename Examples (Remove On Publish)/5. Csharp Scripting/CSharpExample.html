@@ -1,0 +1,64 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+	height:100%;
+}
+
+.padded{
+	padding:20px;
+}
+
+body{
+	margin:0;
+	overflow-y:auto;
+	height:100%:
+}
+
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+<div class='padded'>
+	This example shows how to hook up mousedown events from C#. You can do the same with keydown/up, too. Each element defines e.g. OnMouseDown that you can hook on to. Alternatively, use your C# class name to point e.g. onmousedown directly at a C# function, such as onmousedown="CSharpExample.Direct". JavaScript may instead be used with e.g. onmousedown="jsFunction()".
+	<br>
+	<br>
+	<br>
+	<div id='illBeClickable'>
+		This is a DIV and it's clickable with a C# mousedown function.
+	</div>
+	<br>
+	<br>
+	<div id='illBeClickable' onmousedown='CSharpExample.Direct'>
+		This is a DIV and it's clickable but its mousedown points directly at a C# function.
+	</div>
+
+	<!-- "Category" attribute (doesn't have to be category - it can be anything you want if it's needed) is used to identify which was actually clicked. -->
+	<h4 category="fruits">
+	This is the Fruits Header (all are clickable).
+	</h4>
+
+	<br>
+	<br>
+
+	<h4 category="veggies">
+	This is the Vegetable Header (all are clickable).
+	</h4>
+
+	<br>
+	<br>
+
+	<div class='button'>
+		This is a clickable DIV found by its class.
+	</div>
+
+	<div class='button'>
+		This is a clickable DIV found by its class.
+	</div>
+
+	<div class='button'>
+		This is a clickable DIV found by its class.
+	</div>
+
+</div>

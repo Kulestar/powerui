@@ -1,0 +1,9 @@
+{
+	"default":{
+		"undo":"Ctrl + Z",
+		"redo":"Ctrl + Y",
+		"save":"Ctrl + S",
+		"copy":"Ctrl + C",
+		"paste":"Ctrl + V"
+	}
+}

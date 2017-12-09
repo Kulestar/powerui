@@ -1,0 +1,86 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+#content-box{
+	
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:300px;
+	padding:40px;
+	text-align:justify;
+	color:#000000;
+	margin-top:auto;
+	margin-bottom:auto;
+	left:10%;
+	
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+	
+	<canvas id='my-canvas' width='300' height='200'></canvas>
+	
+</div>
+
+<script type='text/javascript'>
+
+/*
+ Javascript is totally optional - everything it can do, C# can do too (see also UI.document, a static reference)
+*/
+
+// Grab the canvas:
+var myCanvas=document.getElementById("my-canvas");
+
+// Get the context:
+var ctx=myCanvas.getContext("2d");
+
+ctx.beginPath();
+ctx.moveTo(0,10);
+ctx.lineTo(50,10);
+ctx.lineTo(50,60);
+ctx.closePath();
+
+// Colour with alpha:
+ctx.fillStyle="#2288ff99";
+ctx.fill();
+
+// Stroke style:
+ctx.strokeStyle="#000022";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(40,10);
+ctx.lineTo(90,10);
+ctx.lineTo(90,60);
+ctx.closePath();
+
+// Colour with alpha:
+ctx.fillStyle="#ff882299";
+ctx.fill();
+
+ctx.beginPath();
+ctx.moveTo(80,10);
+ctx.lineTo(130,10);
+ctx.lineTo(130,60);
+ctx.quadraticCurveTo(80,60,80,10);
+
+// Colour with alpha:
+ctx.fillStyle="#22ff8899";
+ctx.fill();
+
+</script>

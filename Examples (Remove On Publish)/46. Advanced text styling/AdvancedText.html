@@ -1,0 +1,79 @@
+<!--
+	Declare which languages this document supports.
+	Note that it will inherit if you've got iframes which don't declare this.
+-->
+<meta name='languages' content='en,fr'/>
+
+<style type='text/css'>
+
+/* A blue-ish background */
+body{
+	background:rgb(10,26,26);
+}
+
+/* Remove the margin and set height to 100% */
+body,html{
+	margin:0;
+	height:100%;
+}
+
+/* Styles the text with a stroke and shadow */
+.title{
+	color:white;
+	font-size:4em;
+	text-stroke:3px rgb(51,193,190);
+	text-shadow:3 3 rgb(51,193,190,0.3);
+	-spark-text-background:linear-gradient(to bottom,white 0%,rgb(51,193,190) 100%);
+	/* text-transform:uppercase; */
+}
+
+/* Styles the first letter differently */
+.title::first-letter{
+	color: rgb(51,193,190);
+	font-size:2em;
+}
+
+/* Positions the language select options */
+.languageSelect{
+	position:fixed;
+	bottom:0;
+	left:0;
+	padding:20px;
+}
+
+/* Puts it in the middle of the scren */
+.aligner{
+	height:100%;
+	vertical-align:table-middle;
+	text-align:center;
+}
+
+</style>
+
+<div class='aligner'>
+	
+	<div class='title'>
+		&TextStyleExample.OnceUpon;
+	</div>
+	
+</div>
+
+<div class='languageSelect'>
+	<span onmousedown='changeLanguage(event)' data-lang='en'>EN</span> | 
+	<span onmousedown='changeLanguage(event)' data-lang='fr'>FR</span>
+</div>
+
+<script type='text/javascript'>
+
+/*
+ Javascript is totally optional - everything it can do, C# can do too (see also UI.document, a static reference)
+*/
+
+function changeLanguage(e){
+	
+	// Change the language:
+	PowerUI.UI.Language=e.target.getAttribute("data-lang");
+	
+}
+
+</script>

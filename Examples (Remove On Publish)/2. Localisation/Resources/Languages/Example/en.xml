@@ -1,0 +1,50 @@
+﻿<var name="LocalizationTitle">
+	Localization Examples - Hi &Username;!
+</var>
+
+<var name="SelectLanguage">
+	Select the language:
+</var>
+
+<var name="LocalizationIntro">
+	Localization lets you <i>globalize</i> your game so that it can be understood in lots of different languages. 
+	Text is loaded from the <b>Languages/</b> folder and is used with a <b>&amp;Variable;</b> in your html. 
+	Usually <b>Groups</b> are used like <b>&amp;GroupName.Variable;</b> which come from Languages/GroupName/ instead.
+	Text can optionally be <b>gender specific</b>. This is useful when you want to address the player with he or she.
+	<br>
+	<br>
+	Localization can also be used to set on screen variables which update wherever they've been used on the screen. 
+	<b>Here's a variable example</b> - In this case, the username is the variable.
+</var>
+
+<var name="SelectAUsername">
+	Enter a username:
+</var>
+
+<var name="SelectGender">
+	And select the gender: 
+</var>
+
+<var name="Either">
+	Either
+</var>
+
+<var name="Boy">
+	Boy
+</var>
+
+<var name="Girl">
+	Girl
+</var>
+
+<var name="AWonderfulStory">
+	&Username; likes to be gender neutral. Who knows, maybe &Username; is hiding something!
+</var>
+
+<var name="AWonderfulStory" gender="boy">
+	&Username; likes to play games. &Username; dances too, but don't let him show you.
+</var>
+
+<var name="AWonderfulStory" gender="girl">
+	&Username; likes to go shopping. &Username; dances beautifully too.
+</var>

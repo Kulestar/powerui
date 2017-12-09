@@ -1,0 +1,185 @@
+<!-- Metadata for all languages -->
+<lang code='aa' name='Afar' local='Afaraf'/>
+<lang code='ab' name='Abkhaz' local='аҧсуа бызшәа'/>
+<lang code='ae' name='Avestan' local='avesta'/>
+<lang code='af' name='Afrikaans' local='Afrikaans'/>
+<lang code='ak' name='Akan' local='Akan'/>
+<lang code='am' name='Amharic' local='አማርኛ'/>
+<lang code='an' name='Aragonese' local='aragonés'/>
+<lang code='ar' name='Arabic' local='اللغة العربية' dir='rtl'/>
+<lang code='as' name='Assamese' local='অসমীয়া'/>
+<lang code='av' name='Avaric' local='авар мацӀ'/>
+<lang code='ay' name='Aymara' local='aymar aru'/>
+<lang code='az' name='Azerbaijani' local='azərbaycan dili'/>
+<lang code='ba' name='Bashkir' local='башҡорт теле'/>
+<lang code='be' name='Belarusian' local='беларуская мова'/>
+<lang code='bg' name='Bulgarian' local='български език'/>
+<lang code='bh' name='Bihari' local='भोजपुरी'/>
+<lang code='bi' name='Bislama' local='Bislama'/>
+<lang code='bm' name='Bambara' local='bamanankan'/>
+<lang code='bn' name='Bengali' local='বাংলা'/>
+<lang code='bo' name='Tibetan Standard' local='བོད་ཡིག'/>
+<lang code='br' name='Breton' local='brezhoneg'/>
+<lang code='bs' name='Bosnian' local='bosanski jezik'/>
+<lang code='ca' name='Catalan' local='català'/>
+<lang code='ce' name='Chechen' local='нохчийн мотт'/>
+<lang code='ch' name='Chamorro' local='Chamoru'/>
+<lang code='co' name='Corsican' local='corsu'/>
+<lang code='cr' name='Cree' local='ᓀᐦᐃᔭᐍᐏᐣ'/>
+<lang code='cs' name='Czech' local='čeština'/>
+<lang code='cu' name='Old Church Slavonic' local='ѩзыкъ словѣньскъ'/>
+<lang code='cv' name='Chuvash' local='чӑваш чӗлхи'/>
+<lang code='cy' name='Welsh' local='Cymraeg'/>
+<lang code='da' name='Danish' local='dansk'/>
+<lang code='de' name='German' local='Deutsch'/>
+<lang code='dv' name='Divehi' local='Dhivehi'/>
+<lang code='dz' name='Dzongkha' local='རྫོང་ཁ'/>
+<lang code='ee' name='Ewe' local='Eʋegbe'/>
+<lang code='el' name='Greek' local='ελληνικά'/>
+<lang code='en' name='English' local='English'/>
+<lang code='eo' name='Esperanto' local='Esperanto'/>
+<lang code='es' name='Spanish' local='Español'/>
+<lang code='et' name='Estonian' local='eesti'/>
+<lang code='eu' name='Basque' local='euskara'/>
+<lang code='fa' name='Persian' local='فارسی'/>
+<lang code='ff' name='Fula' local='Fulfulde'/>
+<lang code='fi' name='Finnish' local='suomi'/>
+<lang code='fj' name='Fijian' local='Vakaviti'/>
+<lang code='fo' name='Faroese' local='føroyskt'/>
+<lang code='fr' name='French' local='Français'/>
+<lang code='fy' name='Western Frisian' local='Frysk'/>
+<lang code='ga' name='Irish' local='Gaeilge'/>
+<lang code='gd' name='Scottish Gaelic' local='Gàidhlig'/>
+<lang code='gl' name='Galician' local='galego'/>
+<lang code='gn' name='Guaraní' local='Avañe\'ẽ'/>
+<lang code='gu' name='Gujarati' local='ગુજરાતી'/>
+<lang code='gv' name='Manx' local='Gaelg'/>
+<lang code='ha' name='Hausa' local='هَوُسَ'/>
+<lang code='he' name='Hebrew' local='עברית' dir='rtl'/>
+<lang code='hi' name='Hindi' local='हिन्दी'/>
+<lang code='ho' name='Hiri Motu' local='Hiri Motu'/>
+<lang code='hr' name='Croatian' local='hrvatski jezik'/>
+<lang code='ht' name='Haitian' local='Kreyòl ayisyen'/>
+<lang code='hu' name='Hungarian' local='magyar'/>
+<lang code='hy' name='Armenian' local='Հայերեն'/>
+<lang code='hz' name='Herero' local='Otjiherero'/>
+<lang code='ia' name='Interlingua' local='Interlingua'/>
+<lang code='id' name='Indonesian' local='Indonesian'/>
+<lang code='ie' name='Interlingue' local='Interlingue'/>
+<lang code='ig' name='Igbo' local='Asụsụ Igbo'/>
+<lang code='ii' name='Nuosu' local='ꆈꌠ꒿ Nuosuhxop'/>
+<lang code='ik' name='Inupiaq' local='Iñupiaq'/>
+<lang code='io' name='Ido' local='Ido'/>
+<lang code='is' name='Icelandic' local='Íslenska'/>
+<lang code='it' name='Italian' local='Italiano'/>
+<lang code='iu' name='Inuktitut' local='ᐃᓄᒃᑎᑐᑦ'/>
+<lang code='ja' name='Japanese' local='日本語'/>
+<lang code='jv' name='Javanese' local='basa Jawa'/>
+<lang code='ka' name='Georgian' local='ქართული'/>
+<lang code='kg' name='Kongo' local='Kikongo'/>
+<lang code='ki' name='Kikuyu' local='Gĩkũyũ'/>
+<lang code='kj' name='Kwanyama' local='Kuanyama'/>
+<lang code='kk' name='Kazakh' local='қазақ тілі'/>
+<lang code='kl' name='Kalaallisut' local='kalaallisut'/>
+<lang code='km' name='Khmer' local='ខេមរភាសា'/>
+<lang code='kn' name='Kannada' local='ಕನ್ನಡ'/>
+<lang code='ko' name='Korean' local='한국어'/>
+<lang code='kr' name='Kanuri' local='Kanuri'/>
+<lang code='ks' name='Kashmiri' local='कश्मीरी'/>
+<lang code='ku' name='Kurdish' local='Kurdî'/>
+<lang code='kv' name='Komi' local='коми кыв'/>
+<lang code='kw' name='Cornish' local='Kernewek'/>
+<lang code='ky' name='Kyrgyz' local='Кыргызча'/>
+<lang code='la' name='Latin' local='latine'/>
+<lang code='lb' name='Luxembourgish' local='Lëtzebuergesch'/>
+<lang code='lg' name='Ganda' local='Luganda'/>
+<lang code='li' name='Limburgish' local='Limburgs'/>
+<lang code='ln' name='Lingala' local='Lingála'/>
+<lang code='lo' name='Lao' local='ພາສາ'/>
+<lang code='lt' name='Lithuanian' local='lietuvių kalba'/>
+<lang code='lu' name='Luba-Katanga' local='Tshiluba'/>
+<lang code='lv' name='Latvian' local='latviešu valoda'/>
+<lang code='mg' name='Malagasy' local='fiteny malagasy'/>
+<lang code='mh' name='Marshallese' local='Kajin M̧ajeļ'/>
+<lang code='mi' name='Māori' local='te reo Māori'/>
+<lang code='mk' name='Macedonian' local='македонски јазик'/>
+<lang code='ml' name='Malayalam' local='മലയാളം'/>
+<lang code='mn' name='Mongolian' local='Монгол хэл'/>
+<lang code='mr' name='Marathi' local='मराठी'/>
+<lang code='ms' name='Malay' local='هاس ملايو‎'/>
+<lang code='mt' name='Maltese' local='Malti'/>
+<lang code='my' name='Burmese' local='ဗမာစာ'/>
+<lang code='na' name='Nauru' local='Ekakairũ Naoero'/>
+<lang code='nb' name='Norwegian Bokmål' local='Norsk bokmål'/>
+<lang code='nd' name='Northern Ndebele' local='isiNdebele'/>
+<lang code='ne' name='Nepali' local='नेपाली'/>
+<lang code='ng' name='Ndonga' local='Owambo'/>
+<lang code='nl' name='Dutch' local='Nederlands'/>
+<lang code='nn' name='Norwegian Nynorsk' local='Norsk nynorsk'/>
+<lang code='no' name='Norwegian' local='Norsk'/>
+<lang code='nr' name='Southern Ndebele' local='isiNdebele'/>
+<lang code='nv' name='Navajo' local='Diné bizaad'/>
+<lang code='ny' name='Chichewa' local='chiCheŵa'/>
+<lang code='oc' name='Occitan' local='occitan'/>
+<lang code='oj' name='Ojibwe' local='ᐊᓂᔑᓈᐯᒧᐎᓐ'/>
+<lang code='om' name='Oromo' local='Afaan Oromoo'/>
+<lang code='or' name='Oriya' local='ଓଡ଼ିଆ'/>
+<lang code='os' name='Ossetian' local='ирон æвзаг'/>
+<lang code='pa' name='Panjabi' local='ਪੰਜਾਬੀ'/>
+<lang code='pi' name='Pāli' local='पाऴि'/>
+<lang code='pl' name='Polish' local='język polski'/>
+<lang code='ps' name='Pashto' local='پښتو'/>
+<lang code='pt' name='Portuguese' local='Português'/>
+<lang code='qu' name='Quechua' local='Runa Simi'/>
+<lang code='rm' name='Romansh' local='rumantsch grischun'/>
+<lang code='rn' name='Kirundi' local='Ikirundi'/>
+<lang code='ro' name='Romanian' local='limba română'/>
+<lang code='ru' name='Russian' local='Русский'/>
+<lang code='rw' name='Kinyarwanda' local='Ikinyarwanda'/>
+<lang code='sa' name='Sanskrit' local='संस्कृतम्'/>
+<lang code='sc' name='Sardinian' local='sardu'/>
+<lang code='sd' name='Sindhi' local='सिन्धी'/>
+<lang code='se' name='Northern Sami' local='Davvisámegiella'/>
+<lang code='sg' name='Sango' local='yângâ tî sängö'/>
+<lang code='si' name='Sinhala' local='සිංහල'/>
+<lang code='sk' name='Slovak' local='slovenčina'/>
+<lang code='sl' name='Slovene' local='slovenski jezik'/>
+<lang code='sm' name='Samoan' local='gagana fa\'a Samoa'/>
+<lang code='sn' name='Shona' local='chiShona'/>
+<lang code='so' name='Somali' local='Soomaaliga'/>
+<lang code='sq' name='Albanian' local='Shqip'/>
+<lang code='sr' name='Serbian' local='српски језик'/>
+<lang code='ss' name='Swati' local='SiSwati'/>
+<lang code='st' name='Southern Sotho' local='Sesotho'/>
+<lang code='su' name='Sundanese' local='Basa Sunda'/>
+<lang code='sv' name='Swedish' local='svenska'/>
+<lang code='sw' name='Swahili' local='Kiswahili'/>
+<lang code='ta' name='Tamil' local='தமிழ்'/>
+<lang code='te' name='Telugu' local='తెలుగు'/>
+<lang code='tg' name='Tajik' local='тоҷикӣ'/>
+<lang code='th' name='Thai' local='ไทย'/>
+<lang code='ti' name='Tigrinya' local='ትግርኛ'/>
+<lang code='tk' name='Turkmen' local='Türkmen'/>
+<lang code='tl' name='Tagalog' local='Wikang Tagalog'/>
+<lang code='tn' name='Tswana' local='Setswana'/>
+<lang code='to' name='Tonga' local='faka Tonga'/>
+<lang code='tr' name='Turkish' local='Türkçe'/>
+<lang code='ts' name='Tsonga' local='Xitsonga'/>
+<lang code='tt' name='Tatar' local='татар теле'/>
+<lang code='tw' name='Twi' local='Twi'/>
+<lang code='ty' name='Tahitian' local='Reo Tahiti'/>
+<lang code='ug' name='Uyghur' local='ئۇيغۇرچە‎'/>
+<lang code='uk' name='Ukrainian' local='українська мова'/>
+<lang code='ur' name='Urdu' local='اردو'/>
+<lang code='uz' name='Uzbek' local='Ўзбек'/>
+<lang code='ve' name='Venda' local='Tshivenḓa'/>
+<lang code='vi' name='Vietnamese' local='Việt Nam'/>
+<lang code='vo' name='Volapük' local='Volapük'/>
+<lang code='wa' name='Walloon' local='walon'/>
+<lang code='wo' name='Wolof' local='Wollof'/>
+<lang code='xh' name='Xhosa' local='isiXhosa'/>
+<lang code='yi' name='Yiddish' local='ייִדיש'/>
+<lang code='yo' name='Yoruba' local='Yorùbá'/>
+<lang code='za' name='Zhuang' local='Saɯ cueŋƅ'/>
+<lang code='zh' name='Chinese' local='中文'/>
+<lang code='zu' name='Zulu' local='isiZulu'/>

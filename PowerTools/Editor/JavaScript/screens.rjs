@@ -1,0 +1,141 @@
+/*
+Handles loading up screens.
+*/
+
+var screens = (function(parameters,ajax){
+	
+	var cache={};
+	
+	function nodeName( elem, name ) {
+		return elem.nodeName && elem.nodeName.toUpperCase() === name.toUpperCase();
+	}
+	
+	function evalScript( elem ) {
+		var src=elem.src;
+		
+		var head = document.getElementsByTagName("head")[0] || document.documentElement,
+		script = document.createElement("script");
+		script.type = "text/javascript";
+		
+		if(src){
+			script.src=src;
+		}else{
+			var data = ( elem.text || elem.textContent || elem.innerHTML || "" );
+			script.appendChild( document.createTextNode( data ) );
+		}
+		
+		head.insertBefore( script, head.firstChild );
+		head.removeChild( script );
+
+		if ( elem.parentNode ) {
+			elem.parentNode.removeChild( elem );
+		}
+	}
+	
+	var global={
+		
+		loader : function(){
+			return global.center("<img src='Images/loading.gif'/><br><h2>Loading - we'll be with you shortly!</h2>");
+		},
+		
+		center : function(text){
+			
+			return "<table class='fullsize' cellpadding=0 cellspacing=0>"+
+			"<tr class='fullsize'>"+
+				"<td class='fullsize' style='vertical-align:middle; text-align:center;padding:40px;'>"+
+					text+
+				"</td>"+
+			"</tr></table>";
+		},
+		
+		safe : function(js){
+			try{
+				js();
+			}catch(e){
+				global.displayObject(e);
+			}
+		},
+		
+		displayObject : function(obj){
+			var vDebug = "<h1>Uh oh! There was a Javascript error :(</h1>"; 
+			for (var prop in obj) 
+			{  
+			   vDebug += "property: "+ prop+ " value: ["+ obj[prop]+ "]<br>"; 
+			} 
+			vDebug += "toString(): " + " value: [" + obj.toString() + "]"; 
+			document.body.innerHTML=vDebug;
+		},
+		
+		/*
+		Inserts HTML into the given element (which may also include scripts).
+		*/
+		insertAndExecute : function(domelement, text){
+			domelement.innerHTML = text;
+			var scripts = [];
+			
+			var ret = domelement.childNodes;
+			for ( var i = 0; ret[i]; i++ ) {
+				if ( scripts && nodeName( ret[i], "script" ) && (!ret[i].type || ret[i].type.toLowerCase() === "text/javascript") ) {
+					scripts.push( ret[i].parentNode ? ret[i].parentNode.removeChild( ret[i] ) : ret[i] );
+				}
+			}
+			
+			for(var script in scripts)
+			{
+				evalScript(scripts[script]);
+			}
+		},
+		
+		ele : function(){
+			return document.getElementById("content");
+		},
+		
+		write : function(text){
+			global.ele().innerHTML=text;
+		},
+		
+		error : function(title,msg){
+			global.write(global.center("<h1>"+title+"</h1><br>"+msg));
+		},
+		
+		open : function(name){
+			
+			if(cache[name]){
+				
+				// It's cached!
+				return new Promise(function(success,reject){
+					success(cache[name]);
+				});
+				
+			}
+			
+			global.write(global.loader());
+			
+			// Get:
+			return ajax.get("Screens/"+name+"/index.html").then(function(e){
+				
+				// Ok!
+				cache[name]=e;
+				global.insertAndExecute(global.ele(),e);
+				
+			},function(f){
+				
+				// Failed!
+				global.error("'"+name+"' is unavailable","A screen called "+name+
+					" is unavailable - have you got all the PowerTools files in your project/ uploaded to your site?<br><br>"+
+					"PowerTools doesn't work locally in Chrome/ WebKit (Webkit doesn't allow us to load file:// url's via XHR) - "+
+					"either use another browser like Firefox or upload PowerTools to the web."
+				);
+				
+			});
+			
+		}
+		
+	};
+	
+	return global;
+	
+})(parameters,ajax);
+
+// Handle the screen from the URL now:
+screens.open(parameters["screen"] ? parameters["screen"] : "About");

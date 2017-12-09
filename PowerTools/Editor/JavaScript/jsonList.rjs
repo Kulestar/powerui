@@ -1,0 +1,62 @@
+/*
+* JSON lists are seen as responses from the various API functions (for example, document/list).
+* They're designed to be easy to parse even if the dataset is enormous (GB's in size).
+* This implementation loads smaller ones into an associative array.
+*/
+var jsonList=(function(){
+	
+	return {
+		
+		load:function(json){
+			
+			if(typeof json ==="string"){
+				json=JSON.parse(json);
+			}
+			
+			// Get the fields:
+			var fields=json.fieldNames;
+			
+			var fieldCount=fields.length;
+			
+			var rows=[];
+			
+			// Rows (in blocks - it'll usually be one block; 
+			// anything over one block indicates a large dataset which this isn't designed for):
+			var blocks=json.rows;
+			
+			for(var i=0;i<blocks.length;i++){
+				
+				// Current block:
+				var block=blocks[i];
+				
+				// For each row in the block..
+				for(var r=0;r<block.length;r++){
+					
+					// Grab the row:
+					var row=block[r];
+					
+					// Remap the fields:
+					var outRow={};
+					
+					for(var f=0;f<fieldCount;f++){
+						
+						// Get the field:
+						var field=fields[f];
+						
+						// Map the row:
+						outRow[field]=row[f];
+						
+					}
+					
+					// Add the row to the output:
+					rows.push(outRow);
+				}
+				
+			}
+			
+			return rows;
+			
+		}
+	};
+	
+})();

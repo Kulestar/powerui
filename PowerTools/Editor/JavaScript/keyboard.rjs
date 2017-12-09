@@ -1,0 +1,156 @@
+/*
+Keyboard module.
+Handles multiple keys being pressed down to e.g. form shortcuts.
+Must be provided with an undo/redo module (so shortcuts can be executed using it).
+*/
+var keyboard = (function(commands){
+	
+	// Current keys down:
+	var keysDown=new Array();
+	
+	// Disabled?
+	var disabled=false;
+	
+	// Active key handlers:
+	var keyHandlers=new Array();
+	
+	document.addEventListener("keydown",function(e){
+		
+		if(disabled){
+			return;
+		}
+		
+		// Add to pressed keys, but only if it's not in there already:
+		var add=true;
+		var keyCode=e.keyCode;
+		
+		for(var k=0;k<keysDown.length;k++){
+			if(keysDown[k]==keyCode){
+				add=false;
+				break;
+			}
+		}
+		
+		if(add){
+			// Push:
+			keysDown.push(keyCode);
+			
+			// Sort:
+			keysDown.sort();
+		}
+		
+		// Find a suitable handler:
+		if(keyHandlers[keysDown.length]==null){
+			return;
+		}
+		
+		var ar=keyHandlers[keysDown.length];
+		var l=ar.length;
+		
+		for(var i=0;i<l;i++){
+			
+			// Get meta:
+			var handler=ar[i];
+			
+			// key handlers equal? (lengths must be):
+			var match=true;
+			
+			for(var r=0;r<handler.Keys.length;r++){
+				
+				if(handler.Keys[r]!=keysDown[r]){
+					// Nope!
+					match=false;
+					break;
+				}
+				
+			}
+			
+			if(!match){
+				continue;
+			}
+			
+			// Got it!
+			var undo=null;
+			
+			if(handler.Undo!=null){
+				undo=function(){ return handler.Undo(e); };
+			}
+			
+			if(handler.Block){
+				// Halt the event:
+				e.preventDefault();
+				e.stopPropagation();
+			}
+			
+			commands.run(function(){ return handler.Run(e); },undo);
+			
+			break;
+		}
+		
+	});
+
+	document.addEventListener("keyup",function(e){
+		
+		if(disabled){
+			return;
+		}
+		
+		var keyCode=e.keyCode;
+		
+		// Remove from pressed keys:
+		for(var i=0;i<keysDown.length;i++){
+			
+			if(keysDown[i]==keyCode){
+				
+				// Remove:
+				keysDown.splice(i,1);
+				break;
+				
+			}
+			
+		}
+		
+	});
+
+	return {
+		/*
+		When a given set of keys (array of keycodes) are all pressed down, the given function fires.
+		You can also provide an undo function too.
+		Optionally blocks the keyboardEvent from propagation.
+		*/
+		map : function(keys,doFunc,undo,blockEvt){
+			
+			if(keyHandlers[keys.length]==null){
+				keyHandlers[keys.length]=new Array();
+			}
+			
+			keys.sort();
+			
+			if(blockEvt==null && keys.length>1){
+				blockEvt=true;
+			}
+			
+			// Add:
+			keyHandlers[keys.length].push({Keys:keys,Run:func,Undo:undo,Block:blockEvt});
+			
+		},
+		
+		/*
+		Is the given keycode currently pressed down?
+		*/
+		isDown : function(keyCode){
+			for(var i=0;i<keysDown.length;i++){
+				
+				if(keysDown[i]==keyCode){
+					
+					return true;
+					
+				}
+				
+			}
+			
+			return false;
+		}
+	};
+	
+})(commands);

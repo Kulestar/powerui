@@ -1,0 +1,49 @@
+<var name="LocalizationTitle">
+	Exemples de localisation - Bonjour &Username;!
+</var>
+
+<var name="SelectLanguage">
+	Selectionnez la langue:
+</var>
+
+<var name="LocalizationIntro">
+	Localisation vous permet de <i>globaliser</i> votre jeu afin qu'il puisse être compris dans beaucoup de langues différentes. 
+	Le texte est chargé du dossier <b>Resources/Languages/UI</b> et est utilisé avec une <b>&amp;variable;</b> dans votre code HTML. 
+	Le texte peut être eventuellement <b>spécifiques au genre</b>. Cette fonction est utile lorsque vous voulez aborder le joueur avec lui ou elle.
+	<br>
+	<br>
+	Localisation peut également être utilisée pour définir des variables d'ecran qui mettent a jour partout où ils ont été utilisés à l'écran. 
+	<b>Voici un exemple pour une variable</b> - Dans ce cas, le nom d'utilisateur est la variable.
+</var>
+
+<var name="SelectAUsername">
+	Saisissez un nom d'utilisateur:
+</var>
+
+<var name="SelectGender">
+	Et choisir le sexe: 
+</var>
+
+<var name="Either">
+	Non plus
+</var>
+
+<var name="Boy">
+	Garçon
+</var>
+
+<var name="Girl">
+	Fille
+</var>
+
+<var name="AWonderfulStory">
+	&Username; aime etre neutre. Qui sait, peut-etre &Username; cache quelque chose!
+</var>
+
+<var name="AWonderfulStory" gender="boy">
+	&Username; aime les jeux. &Username; danses aussi, mais ne les laissez pas vous montrer.
+</var>
+
+<var name="AWonderfulStory" gender="girl">
+	&Username; aime faire du shopping. &Username; danse magnifiquement trop.
+</var>

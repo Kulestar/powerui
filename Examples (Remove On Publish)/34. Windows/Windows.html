@@ -1,0 +1,47 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+body,html{
+	height:100%;
+}
+
+#content-box{
+	
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:500px;
+	padding:40px;
+	text-align:justify;
+	color:black;
+	left:10%;
+	
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+	The widget manager is a major new system in PowerUI 2. In short, it's the basis of a templating system for describing self-contained UI's.
+	<br><br>
+	For example, PowerUI 2 has <a href='http://powerui.kulestar.com/wiki/index.php?title=Context_Menu' target='_blank'>built in support for context menu's</a>. Context menu's vary in appearance enormously (and can occur for 3D elements too), so they've been built around the widget manager to be able to make (and share) highly customisable <b>"widget templates"</b> for UI components like these.
+	<br><br>
+	However, it wouldn't be complete without a classic "floating" window, so..
+	<br><br>
+	<!-- The widget type ("floating" - a built in type for displaying a window) and the content to put in it. -->
+	<a href='widget://floating/WindowExample/windowContent.html?hello=javascript'>Click here to open one!</a>
+	<br><br>
+	This link uses the <a href='http://powerui.kulestar.com/wiki/index.php?title=Widget_Protocol' target='_blank'>widget:// protocol</a>. There's also a <a href='http://powerui.kulestar.com/wiki/index.php?title=Widgets_(Web_API)' target='_blank'>web API</a> for opening, closing or cycling them too.
+</div>

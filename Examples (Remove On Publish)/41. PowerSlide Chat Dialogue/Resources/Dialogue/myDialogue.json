@@ -1,0 +1,21 @@
+[
+	{
+		"speaker":"joey",
+		"mood":"pain",
+		"markup":"Help! My foot is stuck!"
+	},
+	{
+		"speaker":"system",
+		"markup":"Will you help him?",
+		"options":[
+			{
+				"markup":"Hold my beer!",
+				"goto":"holdMyBeer.json"
+			},
+			{
+				"markup":"Maybe later.."
+			}
+		]
+	},
+	"You immediately divert your gaze. Is that a plane?"
+]

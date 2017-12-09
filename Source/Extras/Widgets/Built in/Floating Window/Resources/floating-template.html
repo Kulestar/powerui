@@ -1,0 +1,27 @@
+<div class='window-content' draggable="true">
+	
+	<!--
+		MIT license (Free to do whatever you want with)
+		
+		Note! If you're making these templates, there must be exactly one root.
+		Make sure there's no comments or text before/after the root element.
+		E.g. make sure there's no newlines or spaces after the </div> in this case.
+		Scripts won't run - put all your code into the C# file.
+		CSS goes into {name}-style.html e.g. floating-style.html.
+		That's because multiple windows might be opened.
+		
+		Note: By default, the mouse/input only needs to move 1px to start dragging a "draggable" element.
+		(It makes the drag/drop API a lot more useful for UI's)
+		If you want standard behaviour, use mindrag="default".
+	-->
+	<div class='window-title-bar'>
+		<div style='display:inline;color:black;position:relative;top:3px;' -spark-title>
+			<!-- Title of the iframe will be placed in here -->
+		</div>
+		<div class='window-close' onmousedown='Widgets.Widget.CloseThis'>
+			<!-- The Widget.CloseThis method figures out which widget this is and closes it for you -->
+			<img src='resources://floating-CloseButton.png' style='position:relative; top: 4px;'>
+		</div>
+	</div>
+	<iframe class='window-iframe' resize-target="parent"></iframe>
+</div>

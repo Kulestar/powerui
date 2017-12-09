@@ -1,0 +1,48 @@
+<!-- Time for a little CSS! -->
+<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+#content-box{
+	
+	background:#e7e8ee;
+	border:6px solid #cccccc;
+	border-radius:70px 30px 70px 30px;
+	width:300px;
+	padding:40px;
+	text-align:justify;
+	color:#000000;
+	margin-top:auto;
+	margin-bottom:auto;
+	left:10%;
+	
+}
+
+</style>
+
+<!-- The PowerUI logo off to the right. We're using direct style here. -->
+<div style='vertical-align:middle;right:10%;width:140px;height:100%;position:fixed;'>
+	
+	<!-- The logo itself. -->
+	<img src='powerUI-logo.png'/>
+
+</div>
+
+<!-- The rounded box containing the welcome info. Gets its style from the CSS above. -->
+<div id='content-box'>
+		<b>Scene Linking</b>
+		<br>
+		To create a clickable link to another scene, use the scene:// protocol. It's just scene://SceneName.
+		<br>
+		<br>
+		<b>Did you know?</b>
+		<br>
+		You can create custom protcols:// too - this can be amazingly useful for larger projects.
+		<br>
+		<br>
+		<a href='scene://Basics'>1. Basics</a><br>
+		<a href='scene://LocalisationExample'>2. Localisation</a><br>
+		<a href='scene://NitroExample'>3. Nitro Scripting</a><br>
+</div>

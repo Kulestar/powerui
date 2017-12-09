@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+body {
+    background-color:lightgreen;
+}
+
+@media screen and (max-width: 500px), projection and (max-width:300px) {
+    body {
+        background-color:lightblue;
+    }
+}
+</style>
+</head>
+<body>
+<p>Resize the browser window. When the width of this document is less than 500 pixels, the background-color is "lightblue", otherwise it is "lightgreen".</p>
+</body>
+</html>

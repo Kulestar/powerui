@@ -1,0 +1,15 @@
+PowerUI's text system, InfiniText, loads font files directly. This allows it to have full knowledge
+of the shapes within the font file and, as a result, generate these awesome 3D text objects entirely
+at runtime. They're tied into the CSS system so you get the complete power of PowerUI's
+layout engine - they can be animated, plus they localise too!
+
+To use, simply add:
+
+text-extrude:{a number; the world space extrusion amount}
+
+To your CSS, like this:
+
+text-extrude:3;
+
+
+If you need to apply a custom shader, use the shader-family CSS property and provide an Extrude shader.

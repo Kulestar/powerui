@@ -1,0 +1,70 @@
+﻿<style type='text/css'>
+
+html{
+	background:url(noise-background.png);
+}
+
+#title{
+	width:100%;
+	text-align:center;
+	font-size:40px;
+	position:absolute;
+	top:50%;
+}
+
+body{
+	height:100%;
+}
+</style>
+
+<!-- The PowerUI logo in the middle of the screen. -->
+<div style='background:url(powerUI-logo.png) no-repeat;background-position:center;height:100%;position:fixed;'></div>
+
+<div id='title'>Curved Text Can Be Animated Too</div>
+
+<script type='text/javascript'>
+
+// NOTE: foreach(var letter in title.letters){} is generally better than the below.
+
+// Arch settings:
+var maxHeight=50;
+var maxAngle=25;
+
+// Grab the title:
+var title=document.getElementById("title");
+
+// Split it up into its individual letters (so each one is its own element):
+title.lettering();
+
+// How many letters?
+var letterCount=title.letterCount;
+
+var angle=0;
+
+var deltaAngle=(2 * Math.PI)/(letterCount-1);
+
+// Arch each one individually:
+for(var i=0;i<letterCount;i++){
+	
+	// Grab the letter:
+	var ele=title.childNodes[i];
+	
+	// Tell them to rotate around their midpoint:
+	ele.style.transformOrigin="50% 50%";
+	ele.style.position="relative";
+	
+	// Get the rotation as a string in degrees:
+	var rotation=(Math.cos(angle)*maxAngle)+"deg";
+	
+	// Get the top offset as a string in degrees:
+	var top=(Math.sin(angle)*maxHeight)+"px";
+	
+	// Animate there now (using the "ease" CSS function):
+	ele.animate("top:"+top+";transform:rotate("+rotation+")",2,"ease");
+	
+	// Increase the angle:
+	angle+=deltaAngle;
+	
+}
+
+</script>
